@@ -45,17 +45,15 @@ jobs:
   slow:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    # The slow tests only need the dev group; without this, every `uv run` would add
-    # the other default groups.
-    env:
-      UV_NO_DEFAULT_GROUPS: "1"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: ${{ env.UV_VERSION }}
           working-directory: docconv
-      - run: uv sync --frozen --group dev
+      # Every group: pytest imports all test modules before filtering by marker, and
+      # some import benchmark/ (jiwer, rapidfuzz).
+      - run: uv sync --frozen
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/docconv/models
