@@ -67,6 +67,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # The image bakes in several GB of models and the runner runs out of disk while
+      # building it. Remove preinstalled toolchains this job does not use.
+      - name: Free runner disk space
+        run: |
+          df -h /
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
+          df -h /
       - run: docker build -t docconv:ci .
       - name: Smoke conversion without network
         run: |
