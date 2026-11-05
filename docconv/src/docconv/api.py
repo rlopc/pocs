@@ -13,6 +13,7 @@ from types import ModuleType
 from typing import Any
 
 import psutil
+from docling_core.types.doc.document import DoclingDocument
 
 from docconv.profiles import load_catalog
 from docconv.render import ImageAsset, assets_dir_name, render
@@ -63,7 +64,7 @@ def seconds_since_process_start() -> float:
     return time.time() - float(psutil.Process().create_time())
 
 
-def _page_count(doc: Any) -> int:
+def _page_count(doc: DoclingDocument) -> int:
     return len(doc.pages) or 1
 
 
