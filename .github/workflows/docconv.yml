@@ -72,12 +72,13 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # The image bakes in several GB of models and the runner runs out of disk while
-      # building it. Remove preinstalled toolchains this job does not use.
-      - name: Free runner disk space
+      # building it. Remove preinstalled toolchains this job does not use. The removal
+      # takes ~150 s, so it runs in the background while the build starts; the disk is
+      # only needed late in the build (exporting the image).
+      - name: Free runner disk space (background)
         run: |
           df -h /
-          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
-          df -h /
+          nohup sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL > /dev/null 2>&1 &
       - run: docker build -t docconv:ci .
       - name: Smoke conversion without network
         run: |
@@ -86,3 +87,8 @@ jobs:
             -v "$PWD/data/inputs/real:/in:ro" -v /tmp/out:/out \
             docconv:ci convert /in/b2-week_01-02_reading-source.pdf -o /out
           test -s /tmp/out/b2-week_01-02_reading-source.md
+      - name: Disk report
+        if: always()
+        run: |
+          pgrep -af "rm -rf /usr/local/lib/android" || echo "disk cleanup finished"
+          df -h /
