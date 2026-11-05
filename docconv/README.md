@@ -93,7 +93,7 @@ supported by design but not tested.
 uv run pytest                  # fast tests (no models), with coverage >= 80 %
 uv run pytest -m slow --no-cov # tests that load models (run `docconv models download` first)
 uv run ruff format --check && uv run ruff check && uv run ty check
-uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real
+uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real data/expected/reserved
 ```
 
 Pre-commit hooks are configured at the repository root (`pre-commit install` there).
@@ -105,6 +105,8 @@ has no comments, so the reason for each change is listed here:
 
 - `md013` (line length) disabled: the output convention puts one paragraph per line.
 - `md033` (inline HTML) allows only `u`: underline is rendered as `<u>…</u>`.
+- `md036` (emphasis used as a heading) disabled: bold lines such as the key word of an
+  exercise (`**ORDER**`) or a bold subtitle are bold text in the source, not headings.
 
 ## Docker (Linux CPU)
 
