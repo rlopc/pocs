@@ -2,7 +2,7 @@
 # container works without network (`docker run --network none ...`).
 FROM ghcr.io/astral-sh/uv:0.13.7 AS uv
 
-FROM python:3.14.7-slim
+FROM python:3.15.0-slim
 
 # Tesseract for the standard-tesseract profile.
 RUN apt-get update \
