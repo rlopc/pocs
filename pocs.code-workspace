@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "name": "POCs",
+      "path": "."
+    },
+    {
+      "name": "POC Document Converter (DocConv)",
+      "path": "docconv",
+    },
+  ],
+  "settings": {
+    "python.analysis.autoImportCompletions": true,
+    "files.exclude": {
+      "docconv": true,
+    },
+  },
+}
