@@ -1,0 +1,342 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.11.0",
+  "name": "b2-week_01-02_reading-source",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 17814094072931473728,
+    "filename": "b2-week_01-02_reading-source.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/texts/4"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 706.697991,
+            "r": 301.9560000000001,
+            "b": 682.181991,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "A Day I Will Never Forget",
+      "text": "A Day I Will Never Forget",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 668.2588125,
+            "r": 526.66379325,
+            "b": 629.0008124999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            247
+          ]
+        }
+      ],
+      "orig": "Last summer, I decided to spend a weekend in a small mountain village because I wanted to escape the noise of the city. I had always enjoyed visiting quiet places, and I hoped to relax, to explore the area, and to forget about work for a few days.",
+      "text": "Last summer, I decided to spend a weekend in a small mountain village because I wanted to escape the noise of the city. I had always enjoyed visiting quiet places, and I hoped to relax, to explore the area, and to forget about work for a few days."
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 612.7588125,
+            "r": 513.9029355000002,
+            "b": 573.5008124999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            252
+          ]
+        }
+      ],
+      "orig": "When I arrived, the owner of the guest house let me leave my bags in my room before checking in. She suggested walking to a nearby lake and warned me not to go too far into the forest. I promised to be careful, but I was too excited to listen properly.",
+      "text": "When I arrived, the owner of the guest house let me leave my bags in my room before checking in. She suggested walking to a nearby lake and warned me not to go too far into the forest. I promised to be careful, but I was too excited to listen properly."
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 557.2588125,
+            "r": 531.7054102500003,
+            "b": 518.0008124999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            294
+          ]
+        }
+      ],
+      "orig": "I started following a narrow path through the trees. I loved hearing the birds, watching the sunlight move through the leaves, and breathing the fresh mountain air. After walking for nearly an hour, I stopped to drink some water. That was when I realised that I had forgotten to bring my phone.",
+      "text": "I started following a narrow path through the trees. I loved hearing the birds, watching the sunlight move through the leaves, and breathing the fresh mountain air. After walking for nearly an hour, I stopped to drink some water. That was when I realised that I had forgotten to bring my phone."
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 501.7588125,
+            "r": 526.4961037500002,
+            "b": 462.50081249999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            221
+          ]
+        }
+      ],
+      "orig": "I considered turning back, but I decided to continue. I wanted to reach the lake before sunset, and I thought I could find the way without using a map. However, the path suddenly disappeared, and I became completely lost.",
+      "text": "I considered turning back, but I decided to continue. I wanted to reach the lake before sunset, and I thought I could find the way without using a map. However, the path suddenly disappeared, and I became completely lost."
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 446.2588125,
+            "r": 525.8267107500002,
+            "b": 393.50081250000005,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            352
+          ]
+        }
+      ],
+      "orig": "A few minutes later, I heard someone calling for help. I followed the voice and found a young man sitting beside a fallen tree. He had injured his ankle and could not stand up. I offered to help him, and together we tried to find the main path. He suggested climbing a small hill so that we could see the village, but his ankle was too painful to move.",
+      "text": "A few minutes later, I heard someone calling for help. I followed the voice and found a young man sitting beside a fallen tree. He had injured his ankle and could not stand up. I offered to help him, and together we tried to find the main path. He suggested climbing a small hill so that we could see the village, but his ankle was too painful to move."
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 377.2588125,
+            "r": 521.7263610000002,
+            "b": 324.50081250000005,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            345
+          ]
+        }
+      ],
+      "orig": "I told him to stay where he was while I went to look for help. I had never felt so frightened, but I forced myself to remain calm. After walking for another twenty minutes, I saw a small cabin. An elderly woman opened the door and let me use her phone. She called the emergency services and asked me to explain exactly where the injured man was.",
+      "text": "I told him to stay where he was while I went to look for help. I had never felt so frightened, but I forced myself to remain calm. After walking for another twenty minutes, I saw a small cabin. An elderly woman opened the door and let me use her phone. She called the emergency services and asked me to explain exactly where the injured man was."
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 308.2588125,
+            "r": 521.1292440000004,
+            "b": 282.50081250000005,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            192
+          ]
+        }
+      ],
+      "orig": "The rescue team arrived quickly. They made me show them the way, and soon the young man was found and taken to hospital. I was exhausted, relieved, and amazed that everything had ended safely.",
+      "text": "The rescue team arrived quickly. They made me show them the way, and soon the young man was found and taken to hospital. I was exhausted, relieved, and amazed that everything had ended safely."
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 78.0,
+            "t": 266.2588125,
+            "r": 529.5605392499999,
+            "b": 227.00081250000005,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            294
+          ]
+        }
+      ],
+      "orig": "Since that day, I have stopped going into unfamiliar places without taking a phone or a map. I have also learned to follow advice instead of assuming that nothing will go wrong. That experience taught me to be more responsible, and I will never forget helping someone when they truly needed me.",
+      "text": "Since that day, I have stopped going into unfamiliar places without taking a phone or a map. I have also learned to follow advice instead of assuming that nothing will go wrong. That experience taught me to be more responsible, and I will never forget helping someone when they truly needed me."
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 303.42590325000003,
+            "t": 42.12881249999998,
+            "r": 308.57390325,
+            "b": 29.870812500000056,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "1",
+      "text": "1"
+    }
+  ],
+  "pictures": [],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 1
+    }
+  }
+}

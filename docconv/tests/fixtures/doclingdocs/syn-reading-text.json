@@ -1,0 +1,683 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.11.0",
+  "name": "syn-reading-text",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 4222105884588178835,
+    "filename": "syn-reading-text.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/texts/4"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/texts/15"
+      },
+      {
+        "$ref": "#/texts/16"
+      },
+      {
+        "$ref": "#/texts/17"
+      },
+      {
+        "$ref": "#/texts/18"
+      },
+      {
+        "$ref": "#/texts/19"
+      },
+      {
+        "$ref": "#/texts/20"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 253.44638924999998,
+            "t": 815.56653031,
+            "r": 341.8652356203835,
+            "b": 805.84712323,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "Synthetic Reader | B2",
+      "text": "Synthetic Reader | B2"
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 770.390061004,
+            "r": 421.80415072200014,
+            "b": 747.670615372,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            32
+          ]
+        }
+      ],
+      "orig": "The Lighthouse Keeper's Notebook",
+      "text": "The Lighthouse Keeper's Notebook",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 736.801953754,
+            "r": 316.4956531380001,
+            "b": 724.306508122,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "A short story for upper-intermediate readers",
+      "text": "A short story for upper-intermediate readers"
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 706.22440525,
+            "r": 270.17291324999997,
+            "b": 689.18440525,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "An unexpected inheritance",
+      "text": "An unexpected inheritance",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 679.101953254,
+            "r": 532.4389999681174,
+            "b": 618.7565076220001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            364
+          ]
+        }
+      ],
+      "orig": "When my great-aunt Florence died, she left me something nobody in the family had expected: a small, white lighthouse on a rocky island off the west coast. I had visited her there only once, as a child, and I remembered three things about the place. The wind never stopped, the stairs were impossibly steep, and the kitchen always smelt of fresh bread and paraffin.",
+      "text": "When my great-aunt Florence died, she left me something nobody in the family had expected: a small, white lighthouse on a rocky island off the west coast. I had visited her there only once, as a child, and I remembered three things about the place. The wind never stopped, the stairs were impossibly steep, and the kitchen always smelt of fresh bread and paraffin."
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 608.301953254,
+            "r": 532.52758493132,
+            "b": 547.956507622,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            336
+          ]
+        }
+      ],
+      "orig": "The solicitor's office was on the first floor of an old building near the harbour. Mr Fielding, a thin man with enormous eyebrows, read the will aloud and then pushed a brown envelope across the desk. \"Your aunt was very specific,\" he said. \"The lighthouse is yours, but only if you spend fifty nights there before the end of the year.\"",
+      "text": "The solicitor's office was on the first floor of an old building near the harbour. Mr Fielding, a thin man with enormous eyebrows, read the will aloud and then pushed a brown envelope across the desk. \"Your aunt was very specific,\" he said. \"The lighthouse is yours, but only if you spend fifty nights there before the end of the year.\""
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 537.501953254,
+            "r": 532.4667294610138,
+            "b": 477.156507622,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            331
+          ]
+        }
+      ],
+      "orig": "\"Fifty nights?\" I repeated. \"Alone?\" He nodded, as if this were a perfectly reasonable request, and added that the official paperwork would take several weeks. I signed everything, shook his hand and walked out into the rain, wondering whether I had just made the most adventurous decision of my life or the most irresponsible one.",
+      "text": "\"Fifty nights?\" I repeated. \"Alone?\" He nodded, as if this were a perfectly reasonable request, and added that the official paperwork would take several weeks. I signed everything, shook his hand and walked out into the rain, wondering whether I had just made the most adventurous decision of my life or the most irresponsible one."
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 459.07440475,
+            "r": 172.47791325000003,
+            "b": 442.03440475,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "The first night",
+      "text": "The first night",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 431.951953504,
+            "r": 532.4682763360536,
+            "b": 371.60650787199995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            334
+          ]
+        }
+      ],
+      "orig": "The ferry left me on the island at four o'clock on a grey October afternoon. The captain, a cheerful woman called Fiona, promised to come back every Friday with supplies. \"If the weather is bad, I'll be late,\" she warned. \"If it's really bad, I won't come at all.\" Then she waved, turned the boat around and disappeared into the mist.",
+      "text": "The ferry left me on the island at four o'clock on a grey October afternoon. The captain, a cheerful woman called Fiona, promised to come back every Friday with supplies. \"If the weather is bad, I'll be late,\" she warned. \"If it's really bad, I won't come at all.\" Then she waved, turned the boat around and disappeared into the mist."
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 361.15195350399995,
+            "r": 532.4902138366143,
+            "b": 300.806507872,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            373
+          ]
+        }
+      ],
+      "orig": "Inside, the lighthouse was colder than I had imagined. I lit the old stove, found a fluffy blanket in a cupboard and made myself a cup of tea. On the kitchen table there was a leather notebook with my name written on the cover in Florence's careful, old-fashioned handwriting. The first page contained a single sentence: 'Read one entry every evening, and not a page more.'",
+      "text": "Inside, the lighthouse was colder than I had imagined. I lit the old stove, found a fluffy blanket in a cupboard and made myself a cup of tea. On the kitchen table there was a leather notebook with my name written on the cover in Florence's careful, old-fashioned handwriting. The first page contained a single sentence: 'Read one entry every evening, and not a page more.'"
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 290.351953504,
+            "r": 532.4403608079964,
+            "b": 230.00650787200004,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            312
+          ]
+        }
+      ],
+      "orig": "Naturally, I wanted to read the whole thing immediately. Nevertheless, something about the instruction made me hesitate. My aunt had been a remarkably efficient woman who never did anything without a reason, so I closed the notebook, finished my tea and climbed the one hundred and twelve steps to the lamp room.",
+      "text": "Naturally, I wanted to read the whole thing immediately. Nevertheless, something about the instruction made me hesitate. My aunt had been a remarkably efficient woman who never did anything without a reason, so I closed the notebook, finished my tea and climbed the one hundred and twelve steps to the lamp room."
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 533.4967395,
+            "t": 36.03897180999991,
+            "r": 538.584429132,
+            "b": 26.31956472999991,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "1",
+      "text": "1"
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 253.44638924999998,
+            "t": 815.56653031,
+            "r": 341.8652356203835,
+            "b": 805.84712323,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "Synthetic Reader | B2",
+      "text": "Synthetic Reader | B2"
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 763.174405,
+            "r": 200.54291325000005,
+            "b": 746.134405,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "Florence's entries",
+      "text": "Florence's entries",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 736.051953754,
+            "r": 532.5003915712496,
+            "b": 675.7065081220001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            325
+          ]
+        }
+      ],
+      "orig": "The entries turned out to be a mixture of practical advice and strange, affectionate observations. One evening she explained how to fix the generator when the flame in the pilot light went out. Another evening she described a family of seals that, according to her, had been arguing about the same flat rock for twenty years.",
+      "text": "The entries turned out to be a mixture of practical advice and strange, affectionate observations. One evening she explained how to fix the generator when the flame in the pilot light went out. Another evening she described a family of seals that, according to her, had been arguing about the same flat rock for twenty years."
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 665.251953754,
+            "r": 532.4556728201062,
+            "b": 604.906508122,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            370
+          ]
+        }
+      ],
+      "orig": "Gradually, I began to understand the rhythm of the island. I learned to read the sky, to recognise the difference between a temporary shower and a serious storm, and to appreciate the extraordinary silence that followed the wind. I stopped checking my phone, which rarely had a signal anyway, and started writing my own reflections in the margins of Florence's notebook.",
+      "text": "Gradually, I began to understand the rhythm of the island. I learned to read the sky, to recognise the difference between a temporary shower and a serious storm, and to appreciate the extraordinary silence that followed the wind. I stopped checking my phone, which rarely had a signal anyway, and started writing my own reflections in the margins of Florence's notebook."
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 594.451953754,
+            "r": 532.4404281908105,
+            "b": 534.1065081219999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            382
+          ]
+        }
+      ],
+      "orig": "On the thirty-first night, the entry was different. 'By now,' she had written, 'you have probably noticed that the third step from the top is loose. Lift it carefully.' I took a torch, climbed the stairs and, with considerable difficulty, lifted the step. Underneath there was a flat tin box containing a bundle of letters, a photograph of a young woman on a fishing boat and a key.",
+      "text": "On the thirty-first night, the entry was different. 'By now,' she had written, 'you have probably noticed that the third step from the top is loose. Lift it carefully.' I took a torch, climbed the stairs and, with considerable difficulty, lifted the step. Underneath there was a flat tin box containing a bundle of letters, a photograph of a young woman on a fishing boat and a key."
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 516.02440525,
+            "r": 224.19791325000003,
+            "b": 498.98440525,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "What the key opened",
+      "text": "What the key opened",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 488.901953254,
+            "r": 532.4119032877373,
+            "b": 428.556507622,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            341
+          ]
+        }
+      ],
+      "orig": "I won't tell you everything I discovered during the remaining nineteen nights, because some of it belongs to Florence and some of it now belongs to me. I will only say that the key opened a drawer in the office of the harbour master, and that the letters told the story of a friendship which had lasted, in secret, for more than sixty years.",
+      "text": "I won't tell you everything I discovered during the remaining nineteen nights, because some of it belongs to Florence and some of it now belongs to me. I will only say that the key opened a drawer in the office of the harbour master, and that the letters told the story of a friendship which had lasted, in secret, for more than sixty years."
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 418.101953254,
+            "r": 532.433906706269,
+            "b": 357.75650762199996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            304
+          ]
+        }
+      ],
+      "orig": "When Fiona collected me on the fiftieth morning, she looked at my face and laughed. \"You're not leaving, are you?\" she asked. She was right. I went back to the mainland to sign the final documents, and two weeks later I returned to the island with a suitcase, a box of books and a new notebook of my own.",
+      "text": "When Fiona collected me on the fiftieth morning, she looked at my face and laughed. \"You're not leaving, are you?\" she asked. She was right. I went back to the mainland to sign the final documents, and two weeks later I returned to the island with a suitcase, a box of books and a new notebook of my own."
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 533.4967395,
+            "t": 36.03897180999991,
+            "r": 538.584429132,
+            "b": 26.31956472999991,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "2",
+      "text": "2"
+    }
+  ],
+  "pictures": [],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 595.275591,
+        "height": 841.889764
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 595.275591,
+        "height": 841.889764
+      },
+      "page_no": 2
+    }
+  }
+}

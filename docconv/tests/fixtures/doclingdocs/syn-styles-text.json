@@ -1,0 +1,367 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.11.0",
+  "name": "syn-styles-text",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 1949180587319139633,
+    "filename": "syn-styles-text.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/groups/0"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [
+    {
+      "self_ref": "#/groups/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/4"
+        },
+        {
+          "$ref": "#/texts/5"
+        },
+        {
+          "$ref": "#/texts/6"
+        },
+        {
+          "$ref": "#/texts/7"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    }
+  ],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 770.390061004,
+            "r": 284.26750669800003,
+            "b": 747.670615372,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "Text Styles in Context",
+      "text": "Text Styles in Context",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 736.801953754,
+            "r": 504.0452777279999,
+            "b": 708.3565078720001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            145
+          ]
+        }
+      ],
+      "orig": "Some words in this text are bold, some are italic, some are bold and italic, and some are underlined. A careful reader should notice all of them.",
+      "text": "Some words in this text are bold, some are italic, some are bold and italic, and some are underlined. A careful reader should notice all of them."
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 697.901953504,
+            "r": 519.7172048279999,
+            "b": 669.456507622,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            148
+          ]
+        }
+      ],
+      "orig": "When you learn a new phrasal verb, write it down together with an example, such as \"I need to look up this word\". Then say the sentence aloud twice.",
+      "text": "When you learn a new phrasal verb, write it down together with an example, such as \"I need to look up this word\". Then say the sentence aloud twice."
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 651.37440475,
+            "r": 206.03291325,
+            "b": 634.33440475,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "Common mistakes",
+      "text": "Common mistakes",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 85.72098975,
+            "t": 619.251953254,
+            "r": 463.81317249,
+            "b": 606.7565076220001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            72
+          ]
+        }
+      ],
+      "orig": "Do not confuse make and do: we make a decision but we do our homework. \u00b7",
+      "text": "Do not confuse make and do: we make a decision but we do our homework. \u00b7",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 85.72098975,
+            "t": 603.301953754,
+            "r": 309.83978540400005,
+            "b": 590.806508122,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            48
+          ]
+        }
+      ],
+      "orig": "Actually means 'in fact', not 'at the moment'. \u00b7",
+      "text": "Actually means 'in fact', not 'at the moment'. \u00b7",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 85.72098975,
+            "t": 587.351953504,
+            "r": 239.54705874,
+            "b": 574.856507872,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            35
+          ]
+        }
+      ],
+      "orig": "The past of lie (to rest) is lay. \u00b7",
+      "text": "The past of lie (to rest) is lay. \u00b7",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 85.72098975,
+            "t": 571.401953254,
+            "r": 298.22184675000005,
+            "b": 558.9065076219999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            46
+          ]
+        }
+      ],
+      "orig": "We say interested in, never 'interested on'. \u00b7",
+      "text": "We say interested in, never 'interested on'. \u00b7",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 540.82440475,
+            "r": 151.37291325000004,
+            "b": 523.78440475,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "Reading tip",
+      "text": "Reading tip",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 62.692913250000004,
+            "t": 513.701953504,
+            "r": 519.7415620859999,
+            "b": 485.256507622,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            141
+          ]
+        }
+      ],
+      "orig": "Underlined words are often key vocabulary, while bold usually marks grammar. Italics are for titles such as The Lighthouse Keeper's Notebook.",
+      "text": "Underlined words are often key vocabulary, while bold usually marks grammar. Italics are for titles such as The Lighthouse Keeper's Notebook."
+    }
+  ],
+  "pictures": [],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 595.275591,
+        "height": 841.889764
+      },
+      "page_no": 1
+    }
+  }
+}

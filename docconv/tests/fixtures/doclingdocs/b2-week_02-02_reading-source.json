@@ -1,0 +1,986 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.11.0",
+  "name": "b2-week_02-02_reading-source",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 4514307864536842907,
+    "filename": "b2-week_02-02_reading-source.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/texts/4"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/texts/15"
+      },
+      {
+        "$ref": "#/texts/16"
+      },
+      {
+        "$ref": "#/texts/17"
+      },
+      {
+        "$ref": "#/texts/18"
+      },
+      {
+        "$ref": "#/texts/19"
+      },
+      {
+        "$ref": "#/texts/20"
+      },
+      {
+        "$ref": "#/texts/21"
+      },
+      {
+        "$ref": "#/texts/22"
+      },
+      {
+        "$ref": "#/texts/23"
+      },
+      {
+        "$ref": "#/texts/24"
+      },
+      {
+        "$ref": "#/texts/25"
+      },
+      {
+        "$ref": "#/texts/26"
+      },
+      {
+        "$ref": "#/texts/27"
+      },
+      {
+        "$ref": "#/texts/28"
+      },
+      {
+        "$ref": "#/texts/29"
+      },
+      {
+        "$ref": "#/texts/30"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 786.6048432,
+            "r": 340.0087804,
+            "b": 737.6048432,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            40
+          ]
+        }
+      ],
+      "orig": "Little Red Riding Hood: Grandma's Secret",
+      "text": "Little Red Riding Hood: Grandma's Secret",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 727.487656,
+            "r": 154.519531,
+            "b": 717.487656,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            17
+          ]
+        }
+      ],
+      "orig": "A Halloween story",
+      "text": "A Halloween story"
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 695.3675388,
+            "r": 534.71289535,
+            "b": 654.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            218
+          ]
+        }
+      ],
+      "orig": "Everyone called me Red because I kept wearing the same red hoodie. On Halloween evening, Mum asked me to take some groceries to Grandma. I agreed to go, although I had hoped to spend the evening watching a horror film.",
+      "text": "Everyone called me Red because I kept wearing the same red hoodie. On Halloween evening, Mum asked me to take some groceries to Grandma. I agreed to go, although I had hoped to spend the evening watching a horror film."
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 643.3675388,
+            "r": 309.0910656999999,
+            "b": 632.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            46
+          ]
+        }
+      ],
+      "orig": "\"Remember to take her garlic bread,\" Mum said.",
+      "text": "\"Remember to take her garlic bread,\" Mum said."
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 621.3675388,
+            "r": 319.0886259999999,
+            "b": 610.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "A message from Grandma appeared on my phone.",
+      "text": "A message from Grandma appeared on my phone."
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 599.3675388,
+            "r": 539.8706077,
+            "b": 116.86753880000003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1355
+          ]
+        }
+      ],
+      "orig": "\"Forget the garlic bread. Bring chocolate cake.\" I decided to follow Grandma's instructions. Arguing with her about food was never a good idea. I set off just before sunset. Grandma lived on the other side of a small forest, and I enjoyed walking through it. Tonight, however, a thin layer of mist covered the path. The trees looked like figures wearing long, dark coats. Halfway through the forest, I stopped to check my phone. There was a message from Grandma. \"Are you coming? I'm dying to see you.\" Then another appeared. \"Well, perhaps dying isn't the right word.\" I laughed and kept walking. Suddenly, the air turned cold. I felt something pass beside me, although I couldn't see anyone. A chill ran down my spine. For a moment, I had the strange feeling that someone - or something - was watching me. \"Just the wind,\" I said aloud. There wasn't any wind. I would rather be at home, I thought, but Grandma's house was already in sight. Warm light shone through the kitchen window. I hurried to reach the front door and knocked. \"Come in, dear!\" she called. Grandma was sitting at the kitchen table in her pink dressing gown. She had put out two plates, two forks and an enormous cake knife. \"You remembered to bring dessert,\" she said. \"What a lovely surprise.\" \"You asked me to bring it.\" \"Did I? My memory isn't what it was two hundred years ago.\"",
+      "text": "\"Forget the garlic bread. Bring chocolate cake.\" I decided to follow Grandma's instructions. Arguing with her about food was never a good idea. I set off just before sunset. Grandma lived on the other side of a small forest, and I enjoyed walking through it. Tonight, however, a thin layer of mist covered the path. The trees looked like figures wearing long, dark coats. Halfway through the forest, I stopped to check my phone. There was a message from Grandma. \"Are you coming? I'm dying to see you.\" Then another appeared. \"Well, perhaps dying isn't the right word.\" I laughed and kept walking. Suddenly, the air turned cold. I felt something pass beside me, although I couldn't see anyone. A chill ran down my spine. For a moment, I had the strange feeling that someone - or something - was watching me. \"Just the wind,\" I said aloud. There wasn't any wind. I would rather be at home, I thought, but Grandma's house was already in sight. Warm light shone through the kitchen window. I hurried to reach the front door and knocked. \"Come in, dear!\" she called. Grandma was sitting at the kitchen table in her pink dressing gown. She had put out two plates, two forks and an enormous cake knife. \"You remembered to bring dessert,\" she said. \"What a lovely surprise.\" \"You asked me to bring it.\" \"Did I? My memory isn't what it was two hundred years ago.\""
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 52.0,
+            "t": 105.36753880000003,
+            "r": 311.0495613999999,
+            "b": 94.86753880000003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            48
+          ]
+        }
+      ],
+      "orig": "I smiled. Grandma loved making ridiculous jokes.",
+      "text": "I smiled. Grandma loved making ridiculous jokes."
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 46.0,
+            "t": 34.078124799999955,
+            "r": 162.46484560000002,
+            "b": 26.078124799999955,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "Learn Online with Simon | B2",
+      "text": "Learn Online with Simon | B2"
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 543.9102,
+            "t": 34.078124799999955,
+            "r": 549.000044,
+            "b": 26.078124799999955,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "1",
+      "text": "1"
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 52.0,
+            "t": 789.3675388,
+            "r": 543.2799945499999,
+            "b": 117.86753880000003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1408
+          ]
+        }
+      ],
+      "orig": "She told me to sit down while she made some tea. I offered to help, but she insisted on doing everything herself. While she was looking for the cups, I noticed an old photograph on the wall. It showed Grandma standing outside the house in 1926. She looked exactly the same. \"Is that your mother?\" I asked. \"No, dear. That's me. I've always looked after my skin.\" I leaned closer to examine the photograph. There was another beside it, dated 1886. Grandma was in that one too. Before I could ask another question, she turned round. Her eyes glowed red. I nearly dropped my phone. \"Grandma! What big eyes you have!\" \"The better to see you with,\" she replied. \"Why are they red?\" \"I've been staying up late.\" She tucked her hair behind her ears. They were long and pointed. \"What big ears you have!\" \"The better to hear you with.\" A nervous laugh escaped me. \"And what sharp teeth you have!\" Grandma smiled, revealing two enormous fangs. \"The better to eat you with!\" I jumped up so quickly that my chair fell over. Grandma burst out laughing. \"Oh, sit down! I've been waiting fifty years to use that joke.\" I stared at her. \"Are you a vampire?\" \"Well, I'm certainly not the tooth fairy.\" I tried to remain calm. It wasn't easy to accept that your grandmother was a vampire. I had expected to find tea and cake, not a family secret. \"Have you always been one?\" \"Since 1823. A rather complicated summer holiday.\"",
+      "text": "She told me to sit down while she made some tea. I offered to help, but she insisted on doing everything herself. While she was looking for the cups, I noticed an old photograph on the wall. It showed Grandma standing outside the house in 1926. She looked exactly the same. \"Is that your mother?\" I asked. \"No, dear. That's me. I've always looked after my skin.\" I leaned closer to examine the photograph. There was another beside it, dated 1886. Grandma was in that one too. Before I could ask another question, she turned round. Her eyes glowed red. I nearly dropped my phone. \"Grandma! What big eyes you have!\" \"The better to see you with,\" she replied. \"Why are they red?\" \"I've been staying up late.\" She tucked her hair behind her ears. They were long and pointed. \"What big ears you have!\" \"The better to hear you with.\" A nervous laugh escaped me. \"And what sharp teeth you have!\" Grandma smiled, revealing two enormous fangs. \"The better to eat you with!\" I jumped up so quickly that my chair fell over. Grandma burst out laughing. \"Oh, sit down! I've been waiting fifty years to use that joke.\" I stared at her. \"Are you a vampire?\" \"Well, I'm certainly not the tooth fairy.\" I tried to remain calm. It wasn't easy to accept that your grandmother was a vampire. I had expected to find tea and cake, not a family secret. \"Have you always been one?\" \"Since 1823. A rather complicated summer holiday.\""
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 52.0,
+            "t": 106.36753880000003,
+            "r": 155.25683725,
+            "b": 95.86753880000003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "\"Does Mum know?\"",
+      "text": "\"Does Mum know?\""
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 46.0,
+            "t": 34.078124799999955,
+            "r": 162.46484560000002,
+            "b": 26.078124799999955,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "Learn Online with Simon | B2",
+      "text": "Learn Online with Simon | B2"
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 543.9102,
+            "t": 34.078124799999955,
+            "r": 549.000044,
+            "b": 26.078124799999955,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "2",
+      "text": "2"
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 789.3675388,
+            "r": 524.8588931499997,
+            "b": 763.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            111
+          ]
+        }
+      ],
+      "orig": "\"Of course. Why do you think she keeps sending me garlic bread? We've been having the same argument for years.\"",
+      "text": "\"Of course. Why do you think she keeps sending me garlic bread? We've been having the same argument for years.\""
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 752.3675388,
+            "r": 448.3750041999999,
+            "b": 741.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            70
+          ]
+        }
+      ],
+      "orig": "Grandma let me examine her teeth, but she warned me not to touch them.",
+      "text": "Grandma let me examine her teeth, but she warned me not to touch them."
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 730.3675388,
+            "r": 358.0893576999999,
+            "b": 719.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            57
+          ]
+        }
+      ],
+      "orig": "\"They're sharp, dear. And dental treatment is expensive.\"",
+      "text": "\"They're sharp, dear. And dental treatment is expensive.\""
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 708.3675388,
+            "r": 465.7758834999998,
+            "b": 697.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            78
+          ]
+        }
+      ],
+      "orig": "I picked up my chair and sat down again. She cut two slices of chocolate cake.",
+      "text": "I picked up my chair and sat down again. She cut two slices of chocolate cake."
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 686.3675388,
+            "r": 228.88500865000003,
+            "b": 675.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            33
+          ]
+        }
+      ],
+      "orig": "\"So you're not going to bite me?\"",
+      "text": "\"So you're not going to bite me?\""
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 664.3675388,
+            "r": 498.9729008499999,
+            "b": 653.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            86
+          ]
+        }
+      ],
+      "orig": "\"Don't be silly. I've given up biting people. Besides, you'd complain to your mother.\"",
+      "text": "\"Don't be silly. I've given up biting people. Besides, you'd complain to your mother.\""
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 642.3675388,
+            "r": 539.7988328499998,
+            "b": 616.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            128
+          ]
+        }
+      ],
+      "orig": "I finally began to relax. We spent the evening eating cake and watching an old vampire film. Grandma kept pointing out mistakes.",
+      "text": "I finally began to relax. We spent the evening eating cake and watching an old vampire film. Grandma kept pointing out mistakes."
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 605.3675388,
+            "r": 531.46240405,
+            "b": 594.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            93
+          ]
+        }
+      ],
+      "orig": "\"Nobody sleeps comfortably in those coffins,\" she said. \"I tried it once. Terrible backache.\"",
+      "text": "\"Nobody sleeps comfortably in those coffins,\" she said. \"I tried it once. Terrible backache.\""
+    },
+    {
+      "self_ref": "#/texts/21",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 583.3675388,
+            "r": 527.7915095499999,
+            "b": 557.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            118
+          ]
+        }
+      ],
+      "orig": "Before leaving, I promised not to tell anyone her secret. She thanked me and asked me to come back the following week.",
+      "text": "Before leaving, I promised not to tell anyone her secret. She thanked me and asked me to come back the following week."
+    },
+    {
+      "self_ref": "#/texts/22",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 546.3675388,
+            "r": 203.51684695000003,
+            "b": 535.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            29
+          ]
+        }
+      ],
+      "orig": "\"Shall I bring another cake?\"",
+      "text": "\"Shall I bring another cake?\""
+    },
+    {
+      "self_ref": "#/texts/23",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 524.3675388,
+            "r": 175.36987284999998,
+            "b": 513.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            23
+          ]
+        }
+      ],
+      "orig": "\"That would be lovely.\"",
+      "text": "\"That would be lovely.\""
+    },
+    {
+      "self_ref": "#/texts/24",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 502.3675388,
+            "r": 276.41699454999997,
+            "b": 491.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "As I reached the door, she called after me.",
+      "text": "As I reached the door, she called after me."
+    },
+    {
+      "self_ref": "#/texts/25",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 480.3675388,
+            "r": 390.7788102999999,
+            "b": 469.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            65
+          ]
+        }
+      ],
+      "orig": "\"And tell your mother I'd rather have flowers than garlic bread.\"",
+      "text": "\"And tell your mother I'd rather have flowers than garlic bread.\""
+    },
+    {
+      "self_ref": "#/texts/26",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 458.3675388,
+            "r": 523.3925817999999,
+            "b": 432.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            122
+          ]
+        }
+      ],
+      "orig": "I walked home smiling. I had gone to Grandma's house to deliver groceries and ended up discovering that she was a vampire.",
+      "text": "I walked home smiling. I had gone to Grandma's house to deliver groceries and ended up discovering that she was a vampire."
+    },
+    {
+      "self_ref": "#/texts/27",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 421.3675388,
+            "r": 282.37451394999994,
+            "b": 410.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "That explained her unusual sleeping habits.",
+      "text": "That explained her unusual sleeping habits."
+    },
+    {
+      "self_ref": "#/texts/28",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 52.0,
+            "t": 399.3675388,
+            "r": 422.6582078499999,
+            "b": 388.8675388,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            71
+          ]
+        }
+      ],
+      "orig": "It also explained why she had never appeared in a single family selfie.",
+      "text": "It also explained why she had never appeared in a single family selfie."
+    },
+    {
+      "self_ref": "#/texts/29",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 46.0,
+            "t": 34.078124799999955,
+            "r": 162.46484560000002,
+            "b": 26.078124799999955,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "Learn Online with Simon | B2",
+      "text": "Learn Online with Simon | B2"
+    },
+    {
+      "self_ref": "#/texts/30",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 543.9102,
+            "t": 34.078124799999955,
+            "r": 549.000044,
+            "b": 26.078124799999955,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "3",
+      "text": "3"
+    }
+  ],
+  "pictures": [],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 595.28,
+        "height": 841.89
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 595.28,
+        "height": 841.89
+      },
+      "page_no": 2
+    },
+    "3": {
+      "size": {
+        "width": 595.28,
+        "height": 841.89
+      },
+      "page_no": 3
+    }
+  }
+}
