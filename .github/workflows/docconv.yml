@@ -35,6 +35,9 @@ jobs:
       # Installs every dependency group (`default-groups` in pyproject.toml): ty and the
       # tests also cover tools/ and benchmark/.
       - run: uv sync --frozen
+      # The Dockerfile is the reference for the uv and Python versions (Dependabot
+      # updates it): fails if UV_VERSION or .python-version no longer match it.
+      - run: make check-versions
       - run: uv run --frozen ruff format --check
       - run: uv run --frozen ruff check
       # GitHub format: diagnostics show up as annotations on the pull request diff.
