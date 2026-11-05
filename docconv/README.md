@@ -1,0 +1,118 @@
+# docconv
+
+Local converter of documents to Markdown: PDFs with a text layer, scanned PDFs and
+images (PNG, JPEG). It is built on [Docling](https://github.com/docling-project/docling),
+runs every model locally and works without network at runtime.
+
+Status: proof of concept. Phase 1 exports Docling's Markdown as is; per-page routing,
+the output convention rules and self-verification come later.
+
+## Constraints
+
+- Self-hosted: no third-party APIs; all models run where the converter runs.
+- Portable: must run on Linux (CPU or NVIDIA GPU) and macOS. Platform-specific
+  accelerators (Apple Vision OCR, MLX) are optional backends, never required.
+- Licensing: runtime dependencies and model weights must allow commercial use
+  and hosted deployment.
+
+## Installation
+
+Requires [uv](https://docs.astral.sh/uv/) and Python 3.14 (uv installs it if missing).
+
+```bash
+uv sync                               # development environment
+uv sync --extra vlm                   # + vision-language model profiles (Transformers; MLX on Apple Silicon)
+uv sync --extra ocrmac                # + Apple Vision OCR (macOS only)
+uv tool install --editable .          # `docconv` command on the PATH
+```
+
+The `standard-tesseract` profile also needs the `tesseract` binary with English data
+(`brew install tesseract`, `apt-get install tesseract-ocr tesseract-ocr-eng`).
+
+### Models
+
+Models are downloaded once, at pinned revisions, into `$DOCCONV_ARTIFACTS_PATH`
+(default `~/.cache/docconv/models`):
+
+```bash
+docconv models download                          # every non-optional profile available here
+docconv models download --profile vlm-glmocr     # a specific (or optional) profile
+```
+
+At runtime docconv never downloads anything: Docling reads the models from that folder
+and Hugging Face runs in offline mode. A missing model is an error that names the
+command to run.
+
+## Usage
+
+```bash
+docconv convert report.pdf scans/ -o out/            # files and folders (recursive)
+docconv convert page.png --profile standard-fullocr
+docconv convert docs/ --json                         # JSON list of reports on stdout
+```
+
+For each document it writes `<stem>.md`, `<stem>.assets/image-NNN.png` and
+`<stem>.report.json` (profile, route per page, device, timings, peak memory, versions
+of Docling and of every model). Folder inputs keep their sub-folder layout under the
+output folder; files other than `.pdf`, `.png`, `.jpg` and `.jpeg` are skipped with a
+warning.
+
+Exit codes: `0` all converted and verified; `1` some verification failed; `2` usage
+error or some conversion failed. Every document is processed even if one fails.
+
+As a library:
+
+```python
+import docconv
+
+result = docconv.convert("report.pdf")  # in memory, nothing written
+result = docconv.convert("report.pdf", output_dir="out", profile="vlm-granite")
+print(result.markdown, result.report)
+```
+
+## Profiles
+
+Defined in `src/docconv/profiles.toml`, each with the pinned revision of every model.
+
+| Profile | Pipeline | OCR / model | Platforms |
+| --- | --- | --- | --- |
+| `standard-rapidocr` (default) | layout + OCR + TableFormer | RapidOCR (ONNX Runtime) | any |
+| `standard-tesseract` | same | Tesseract (system binary) | any |
+| `standard-fullocr` | same | RapidOCR, full-page OCR | any |
+| `vlm-granite` | vision-language model | granite-docling-258M (Transformers) | any |
+| `vlm-granite-mlx` | vision-language model | granite-docling-258M (MLX) | macOS arm64 |
+| `standard-ocrmac` | layout + OCR + TableFormer | Apple Vision | macOS arm64 |
+| `vlm-glmocr` (optional) | vision-language model | GLM-OCR (Transformers) | any |
+
+The device is chosen automatically (CUDA, MPS or CPU). Linux with an NVIDIA GPU is
+supported by design but not tested.
+
+## Development
+
+```bash
+uv run pytest                  # fast tests (no models), with coverage >= 80 %
+uv run pytest -m slow --no-cov # tests that load models (run `docconv models download` first)
+uv run ruff format --check && uv run ruff check && uv run ty check
+uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real
+```
+
+Pre-commit hooks are configured at the repository root (`pre-commit install` there).
+
+### Markdown lint
+
+`.pymarkdown.json` configures [PyMarkdown](https://pymarkdown.readthedocs.io/). JSON
+has no comments, so the reason for each change is listed here:
+
+- `md013` (line length) disabled: the output convention puts one paragraph per line.
+- `md033` (inline HTML) allows only `u`: underline is rendered as `<u>…</u>`.
+
+## Docker (Linux CPU)
+
+```bash
+docker build -t docconv .
+docker run --rm --network none -v "$PWD/in:/in:ro" -v "$PWD/out:/out" \
+  docconv convert /in -o /out
+```
+
+The image bundles the models of the portable profiles (downloaded at build time) and
+installs CPU-only PyTorch. It runs as a non-root user.

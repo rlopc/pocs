@@ -1,0 +1,137 @@
+# Named conversion profiles.
+#
+# Every model a profile uses is listed under [models] with a pinned revision
+# (a commit SHA for Hugging Face repos). `docconv models download` fetches exactly
+# these revisions into the artifacts folder; at runtime Docling reads them from
+# there with networking disabled.
+
+default = "standard-rapidocr"
+
+# --- Models -----------------------------------------------------------------
+# source = "hf": Hugging Face repo, downloaded with snapshot_download at `revision`.
+# source = "rapidocr": RapidOCR checkpoints, served by ModelScope (RapidAI/RapidOCR)
+#   under a tag equal to the installed `rapidocr` version; `revision` must match it.
+# `folder` is the sub-folder of the artifacts path where Docling looks for it.
+
+[models.layout-heron]
+source = "hf"
+repo = "docling-project/docling-layout-heron"
+revision = "8f39ad3c0b4c58e9c2d2c84a38465abf757272d8"
+folder = "docling-project--docling-layout-heron"
+license = "Apache-2.0"
+
+[models.tableformer]
+source = "hf"
+repo = "docling-project/docling-models"
+revision = "fc0f2d45e2218ea24bce5045f58a389aed16dc23" # tag v2.3.0, the one Docling requests
+folder = "docling-project--docling-models"
+license = "CDLA-Permissive-2.0 OR Apache-2.0"
+
+[models.rapidocr-onnx-ch]
+source = "rapidocr"
+repo = "RapidAI/RapidOCR"
+revision = "v3.10.0"
+folder = "RapidOcr"
+backend = "onnxruntime"
+lang = "ch"
+model_size = "small"
+license = "Apache-2.0"
+
+[models.granite-docling]
+source = "hf"
+repo = "ibm-granite/granite-docling-258M"
+revision = "982fe3b40f2fa73c365bdb1bcacf6c81b7184bfe"
+folder = "ibm-granite--granite-docling-258M"
+license = "Apache-2.0"
+
+[models.granite-docling-mlx]
+source = "hf"
+repo = "ibm-granite/granite-docling-258M-mlx"
+revision = "e9939db25d2f296c8678d0491c4609a8c596c50a"
+folder = "ibm-granite--granite-docling-258M-mlx"
+license = "Apache-2.0"
+
+[models.glm-ocr]
+source = "hf"
+repo = "zai-org/GLM-OCR"
+revision = "2e85a62840ccac27daa451df36c736c4636b8628"
+folder = "zai-org--GLM-OCR"
+license = "MIT"
+
+# --- Profiles ---------------------------------------------------------------
+# pipeline: "standard" (layout + OCR + TableFormer) | "vlm" (one vision-language model)
+# ocr_engine: "rapidocr" | "tesseract" | "ocrmac" (standard pipeline only)
+# ocr_mode: Docling OcrMode value ("default" | "full_page" | ...)
+# vlm_spec: name of the preset in docling.datamodel.vlm_model_specs (vlm pipeline only)
+# platforms: "any" | "darwin-arm64"
+# optional: not downloaded by default (`models download` needs an explicit --profile)
+
+[profiles.standard-rapidocr] # C1
+pipeline = "standard"
+ocr_engine = "rapidocr"
+ocr_mode = "default"
+models = ["layout-heron", "tableformer", "rapidocr-onnx-ch"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "any"
+
+[profiles.standard-tesseract] # C2 (needs the `tesseract` binary with English data)
+pipeline = "standard"
+ocr_engine = "tesseract"
+ocr_mode = "default"
+ocr_lang = ["eng"]
+models = ["layout-heron", "tableformer"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "any"
+
+[profiles.standard-fullocr] # C3
+pipeline = "standard"
+ocr_engine = "rapidocr"
+ocr_mode = "full_page"
+models = ["layout-heron", "tableformer", "rapidocr-onnx-ch"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "any"
+
+[profiles.vlm-granite] # C4 (extra `vlm`)
+pipeline = "vlm"
+vlm_spec = "GRANITEDOCLING_TRANSFORMERS"
+models = ["granite-docling"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "any"
+
+[profiles.vlm-granite-mlx] # C5 (extra `vlm`)
+pipeline = "vlm"
+vlm_spec = "GRANITEDOCLING_MLX"
+models = ["granite-docling-mlx"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "darwin-arm64"
+
+[profiles.standard-ocrmac] # C6 (extra `ocrmac`; Apple Vision)
+pipeline = "standard"
+ocr_engine = "ocrmac"
+ocr_mode = "default"
+ocr_lang = ["en-US"]
+models = ["layout-heron", "tableformer"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "darwin-arm64"
+
+[profiles.vlm-glmocr] # C7 (extra `vlm`); only if C1-C4 fail on scans/images
+pipeline = "vlm"
+vlm_spec = "GLMOCR_TRANSFORMERS"
+models = ["glm-ocr"]
+device = "auto"
+images_scale = 2.0
+image_export = "referenced"
+platforms = "any"
+optional = true

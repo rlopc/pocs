@@ -1,0 +1,96 @@
+[project]
+name = "docconv"
+version = "0.1.0"
+description = "Local converter of documents (PDF, scanned PDF, images) to Markdown, with self-verification"
+readme = "README.md"
+authors = [
+    { name = "rlopc", email = "rlopc4dev@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "docling-core>=2.106.0",
+    "docling[rapidocr]>=2.147,<3",
+    "huggingface-hub>=1.33.0",
+    "markdown-it-py>=4.2.0",
+    "mcp>=2.3,<3",
+    "psutil>=7.2.2",
+    "pymarkdownlnt>=0.9.41",
+    # torch and torchvision come in through docling; they are declared directly only so
+    # that [tool.uv.sources] can route them to the CPU-only index on Linux
+    # (uv ignores sources for transitive dependencies).
+    "torch>=2.15.0",
+    "torchvision>=0.29.2",
+    "typer>=0.27.3",
+]
+
+[project.scripts]
+docconv = "docconv.cli:app"
+
+[project.optional-dependencies]
+vlm = [
+    "docling[vlm]>=2.147,<3",
+]
+ocrmac = [
+    "docling[ocrmac]>=2.147,<3",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+benchmark = [
+    "jiwer>=4.0.0",
+    "markdown-it-py>=4.2.0",
+    "rapidfuzz>=3.14.6",
+]
+dev = [
+    "pillow>=13.0.0",
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.3",
+    "ty==0.0.97",
+]
+synthetic = [
+    "jinja2>=3.1.6",
+    "numpy>=2.5.4",
+    "pillow>=13.0.0",
+    "pypdfium2>=5.14.0",
+    "weasyprint>=70.0",
+]
+
+# CPU-only PyTorch on Linux (container and CI); macOS uses the default PyPI wheels.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ty.rules]
+all = "error"
+
+[tool.ty.environment]
+python-version = "3.14"
+
+[tool.ty.src]
+include = ["src", "tests", "benchmark", "tools"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: loads ML models"]
+addopts = "-m 'not slow' --cov=docconv --cov-report=term-missing --cov-fail-under=80"
+
+[tool.coverage.run]
+source = ["docconv"]
+# Thin layers that need models or network; covered by the `slow` tests.
+omit = ["*/docconv/engine.py", "*/docconv/models.py"]
