@@ -22,9 +22,9 @@ ENV UV_COMPILE_BYTECODE=1 \
 WORKDIR /app
 # Dependencies first (cached layer), then the project itself.
 COPY pyproject.toml uv.lock README.md ./
-RUN uv sync --frozen --no-dev --extra vlm --no-install-project
+RUN uv sync --frozen --no-default-groups --extra vlm --no-install-project
 COPY src ./src
-RUN uv sync --frozen --no-dev --extra vlm --no-editable
+RUN uv sync --frozen --no-default-groups --extra vlm --no-editable
 
 # Models of the portable profiles (C1-C4, plus the optional C7, activated in the
 # profile comparison); needs network at build time only.
