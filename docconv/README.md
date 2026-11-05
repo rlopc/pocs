@@ -98,6 +98,22 @@ uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md bench
 
 Pre-commit hooks are configured at the repository root (`pre-commit install` there).
 
+### Tool versions
+
+The Dockerfile is the reference for the `uv` and Python versions: Dependabot keeps it
+up to date. Two other places repeat them by hand: `UV_VERSION` in
+`.github/workflows/docconv.yml` and `.python-version`. CI runs `make check-versions`,
+which fails and says what to change when they differ from the Dockerfile, when the
+local `uv` is older than it, or when the pinned Python is not installed.
+
+```bash
+make check-versions   # report mismatches; changes nothing
+make update-tooling   # brew upgrade uv (Homebrew) + install the pinned Python
+```
+
+When a Dependabot PR bumps the Dockerfile, update `UV_VERSION` and `.python-version`
+in the same PR.
+
 ### Synthetic test documents
 
 `tools/synthetic/` builds documents from one source of truth per document: the same
