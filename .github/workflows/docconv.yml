@@ -1,0 +1,70 @@
+name: docconv
+
+on:
+  push:
+    paths: ["docconv/**", ".github/workflows/docconv.yml"]
+  pull_request:
+    paths: ["docconv/**", ".github/workflows/docconv.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docconv-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: docconv
+
+env:
+  UV_VERSION: "0.13.7"
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: ${{ env.UV_VERSION }}
+          working-directory: docconv
+      - run: uv sync --frozen
+      - run: uv run --frozen ruff format --check
+      - run: uv run --frozen ruff check
+      - run: uv run --frozen ty check
+      - run: uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real
+      - run: uv run --frozen pytest
+
+  slow:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: ${{ env.UV_VERSION }}
+          working-directory: docconv
+      - run: uv sync --frozen
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/docconv/models
+          key: docconv-models-c1-${{ hashFiles('docconv/src/docconv/profiles.toml', 'docconv/uv.lock') }}
+      # Only the models of C1 (standard-rapidocr): the slow tests use it.
+      - run: uv run --frozen docconv models download --profile standard-rapidocr
+      - run: uv run --frozen pytest -m slow --no-cov
+
+  docker:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: docker build -t docconv:ci .
+      - name: Smoke conversion without network
+        run: |
+          mkdir -p /tmp/out && chmod 777 /tmp/out
+          docker run --rm --network none \
+            -v "$PWD/data/inputs/real:/in:ro" -v /tmp/out:/out \
+            docconv:ci convert /in/b2-week_01-02_reading-source.pdf -o /out
+          test -s /tmp/out/b2-week_01-02_reading-source.md

@@ -1,0 +1,45 @@
+# Hooks for the whole monorepo. POC-specific hooks are local, filtered by folder,
+# and run each tool through `uv run --frozen` so its version comes from that POC's
+# uv.lock (Dependabot updates it in one place).
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+        args: ["--maxkb=3000"]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: local
+    hooks:
+      - id: docconv-ruff-format
+        name: docconv ruff format
+        language: system
+        entry: bash -c 'cd docconv && uv run --frozen ruff format --check'
+        files: ^docconv/
+        pass_filenames: false
+      - id: docconv-ruff-check
+        name: docconv ruff check
+        language: system
+        entry: bash -c 'cd docconv && uv run --frozen ruff check'
+        files: ^docconv/
+        pass_filenames: false
+      - id: docconv-ty
+        name: docconv ty
+        language: system
+        entry: bash -c 'cd docconv && uv run --frozen ty check'
+        files: ^docconv/
+        pass_filenames: false
+      - id: docconv-pymarkdown
+        name: docconv pymarkdown
+        language: system
+        entry: bash -c 'cd docconv && uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real'
+        files: ^docconv/
+        pass_filenames: false

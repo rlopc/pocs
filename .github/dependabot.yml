@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: "uv"
+    directory: "/docconv"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "docconv"
+    groups:
+      dev-tools:
+        patterns: ["ruff", "ty", "pytest*", "pymarkdownlnt"]
+
+  - package-ecosystem: "docker"
+    directory: "/docconv"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "docconv"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"
