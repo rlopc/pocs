@@ -53,6 +53,7 @@ dev = [
 ]
 synthetic = [
     "jinja2>=3.1.6",
+    "markupsafe>=3.0.4",
     "numpy>=2.5.4",
     "pillow>=13.0.0",
     "pypdfium2>=5.14.0",

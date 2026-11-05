@@ -92,11 +92,26 @@ supported by design but not tested.
 ```bash
 uv run pytest                  # fast tests (no models), with coverage >= 80 %
 uv run pytest -m slow --no-cov # tests that load models (run `docconv models download` first)
-uv run ruff format --check && uv run ruff check && uv run ty check
+uv run ruff format --check && uv run ruff check && uv run --all-groups ty check
 uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real data/expected/reserved
 ```
 
 Pre-commit hooks are configured at the repository root (`pre-commit install` there).
+
+### Synthetic test documents
+
+`tools/synthetic/` builds documents from one source of truth per document: the same
+blocks produce the HTML (rendered to PDF by WeasyPrint) and the expected Markdown.
+Variants: `text` (PDF with a text layer) and `scan` (rasterised at 200 dpi, with noise,
+up to ±1.5° skew and JPEG compression) for all five templates, plus `png` for the
+table. Output is deterministic for a given seed and is not versioned:
+
+```bash
+uv run --group synthetic python tools/synthetic/generate.py --seed 42
+```
+
+WeasyPrint needs Pango (`brew install pango` on macOS). If it cannot load the
+Homebrew libraries, prefix the command with `DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib`.
 
 ### Markdown lint
 

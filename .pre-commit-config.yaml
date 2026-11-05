@@ -34,7 +34,7 @@ repos:
       - id: docconv-ty
         name: docconv ty
         language: system
-        entry: bash -c 'cd docconv && uv run --frozen ty check'
+        entry: bash -c 'cd docconv && uv run --frozen --all-groups ty check'
         files: ^docconv/
         pass_filenames: false
       - id: docconv-pymarkdown
