@@ -64,7 +64,8 @@ def current_platform() -> str:
     return f"{system}-{machine}"
 
 
-def _require(table: dict[str, Any], key: str, where: str) -> Any:
+# Values come from parsed TOML, which tomllib types as Any.
+def _require(table: dict[str, Any], key: str, where: str) -> Any:  # noqa: ANN401
     if key not in table:
         raise ProfileError(f"{where}: missing field '{key}'")
     return table[key]

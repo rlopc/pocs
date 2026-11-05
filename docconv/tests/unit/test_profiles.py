@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import tomllib
+from collections.abc import Callable
 from importlib import resources
 from typing import Any
 
@@ -82,7 +83,7 @@ def test_current_platform_normalises_arch(monkeypatch: pytest.MonkeyPatch) -> No
         (lambda d: d["models"]["glm-ocr"].pop("revision"), "missing field 'revision'"),
     ],
 )
-def test_invalid_catalog(mutate: Any, message: str) -> None:
+def test_invalid_catalog(mutate: Callable[[dict[str, Any]], object], message: str) -> None:
     data = copy.deepcopy(_raw())
     mutate(data)
     with pytest.raises(ProfileError, match=message):

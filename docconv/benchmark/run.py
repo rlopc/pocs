@@ -250,7 +250,9 @@ def _mean(values: list[float | None]) -> float | None:
     return sum(present) / len(present) if present else None
 
 
-def aggregate(result: dict[str, Any], cases: list[Case], group: str, kind: str, env: str):
+def aggregate(
+    result: dict[str, Any], cases: list[Case], group: str, kind: str, env: str
+) -> dict[str, Any] | None:
     docs = [c for c in cases if c.group == group and c.type == kind]
     if not docs:
         return None
@@ -295,7 +297,7 @@ def aggregate(result: dict[str, Any], cases: list[Case], group: str, kind: str, 
     return row
 
 
-def _fmt(value: Any, style: str) -> str:
+def _fmt(value: float | None, style: str) -> str:
     if value is None:
         return "N/A"
     if style == "pct":
