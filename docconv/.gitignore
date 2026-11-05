@@ -1,0 +1,14 @@
+# Generated outputs
+data/outputs/
+data/inputs/synthetic/
+data/expected/synthetic/
+docconv-out/
+
+# Local notes (not versioned)
+data/expected/DOUBTS.md
+PLAN.md
+
+# Tooling
+.coverage
+htmlcov/
+.venv/
