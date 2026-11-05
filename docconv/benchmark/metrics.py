@@ -2,7 +2,9 @@
 
 Definitions (fixed before looking at any result):
 - Text is extracted by walking the markdown-it-py token tree: tables row by row,
-  left to right; image alt text is discarded.
+  left to right; image alt text is discarded. The number of an ordered-list item is
+  part of the text (it is the original number, i.e. document content), so "1. Foo"
+  as a list and "1. Foo" written as plain text give the same words.
 - Blank: a run of 3+ underscores or 4+ dots. Excluded from the normalised text,
   kept as one token ("_____") in the strict text.
 - Normalised: NFKC, lower case, every Unicode punctuation character (category P*)
@@ -122,6 +124,8 @@ def parse(markdown: str) -> Parsed:
             case "list_item_open":
                 ordered, items = parsed.lists[open_lists[-1]]
                 parsed.lists[open_lists[-1]] = (ordered, items + 1)
+                if tok.info:  # ordered-list number
+                    parsed.text.append(tok.info)
             case "table_open":
                 parsed.tables.append([])
             case "tr_open":

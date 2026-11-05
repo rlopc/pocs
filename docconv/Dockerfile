@@ -26,8 +26,9 @@ RUN uv sync --frozen --no-dev --extra vlm --no-install-project
 COPY src ./src
 RUN uv sync --frozen --no-dev --extra vlm --no-editable
 
-# Models of the portable profiles (C1-C4); needs network at build time only.
-RUN docconv models download
+# Models of the portable profiles (C1-C4, plus the optional C7, activated in the
+# profile comparison); needs network at build time only.
+RUN docconv models download && docconv models download --profile vlm-glmocr
 ENV HF_HUB_OFFLINE=1
 
 RUN useradd --create-home --uid 10001 docconv

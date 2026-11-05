@@ -93,7 +93,7 @@ supported by design but not tested.
 uv run --all-groups pytest     # fast tests (no models), with coverage >= 80 %
 uv run pytest -m slow --no-cov # tests that load models (run `docconv models download` first)
 uv run ruff format --check && uv run ruff check && uv run --all-groups ty check
-uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real data/expected/reserved
+uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved
 ```
 
 Pre-commit hooks are configured at the repository root (`pre-commit install` there).

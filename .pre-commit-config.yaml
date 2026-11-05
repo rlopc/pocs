@@ -43,6 +43,6 @@ repos:
       - id: docconv-pymarkdown
         name: docconv pymarkdown
         language: system
-        entry: bash -c 'cd docconv && uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real data/expected/reserved'
+        entry: bash -c 'cd docconv && uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved'
         files: ^docconv/
         pass_filenames: false

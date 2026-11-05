@@ -399,6 +399,11 @@ def main() -> None:
     parser.add_argument("--repeats", type=int, default=3)
     parser.add_argument("--reserved", action="store_true", help="use the reserved set (phase 5)")
     parser.add_argument("--image", default="docconv:latest", help="Docker image for --env linux")
+    parser.add_argument(
+        "--report-only",
+        action="store_true",
+        help="do not convert: recompute quality from the saved outputs and rewrite the report",
+    )
     args = parser.parse_args()
     if args.reserved:
         profiles = (args.profiles or "default").split(",")
@@ -406,10 +411,25 @@ def main() -> None:
         profiles = args.profiles.split(",") if args.profiles else PROFILES[args.env]
     cases = discover(args.reserved)
     out_root = DATA / "outputs" / (f"{args.env}-reserved" if args.reserved else args.env)
-    results = [
-        benchmark_profile(args.env, p, cases, out_root, args.image, args.repeats) for p in profiles
-    ]
-    meta = _meta(args.env)
+    if args.report_only:
+        saved = json.loads((out_root / "benchmark.json").read_text(encoding="utf-8"))
+        results, meta = saved["results"], saved["meta"]
+        for result in results:
+            done = {
+                "reports": {c.stem: {} for c in cases if c.stem not in result["runs"][0]["failed"]}
+            }
+            result["quality"] = quality(done, cases, out_root / result["profile"])
+    else:
+        fresh = [
+            benchmark_profile(args.env, p, cases, out_root, args.image, args.repeats)
+            for p in profiles
+        ]
+        # Merge with earlier runs of other profiles (e.g. C7 measured later).
+        saved_path = out_root / "benchmark.json"
+        saved = json.loads(saved_path.read_text(encoding="utf-8")) if saved_path.is_file() else {}
+        kept = [r for r in saved.get("results", []) if r["profile"] not in profiles]
+        results = kept + fresh
+        meta = _meta(args.env)
     raw = {"meta": meta, "cases": [c.stem for c in cases], "results": results}
     (out_root / "benchmark.json").write_text(json.dumps(raw, indent=2) + "\n", encoding="utf-8")
     (out_root / "results.md").write_text(report(results, cases, args.env, meta), encoding="utf-8")

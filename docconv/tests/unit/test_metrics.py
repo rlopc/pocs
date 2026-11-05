@@ -80,3 +80,9 @@ def test_table_shape_and_cells() -> None:
 def test_empty_output() -> None:
     m = compare(DOC, "")
     assert m["wer_norm"] == 1 and m["heading_f1"] == 0 and m["table_shape_ok"] == 0
+
+
+def test_list_numbers_are_text() -> None:
+    m = compare("1. Foo.\n2. Bar.\n", "1\\. Foo.\n\n2\\. Bar.\n")
+    assert m["invented"] == m["omitted"] == 0
+    assert m["lists_ok"] == 0  # same words, but no list in the output
