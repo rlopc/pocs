@@ -61,6 +61,11 @@ synthetic = [
     "weasyprint>=70.0",
 ]
 
+[tool.uv]
+# Every group is part of the local dev environment, so a bare `uv sync` keeps them all.
+# Dependency groups never reach the built package metadata.
+default-groups = "all"
+
 # CPU-only PyTorch on Linux (container and CI); macOS uses the default PyPI wheels.
 [[tool.uv.index]]
 name = "pytorch-cpu"
