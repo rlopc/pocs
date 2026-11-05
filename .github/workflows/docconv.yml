@@ -32,12 +32,13 @@ jobs:
         with:
           version: ${{ env.UV_VERSION }}
           working-directory: docconv
-      - run: uv sync --frozen
+      # All groups: ty and the tests also cover tools/ and benchmark/.
+      - run: uv sync --frozen --all-groups
       - run: uv run --frozen ruff format --check
       - run: uv run --frozen ruff check
       - run: uv run --frozen --all-groups ty check
       - run: uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md data/expected/real data/expected/reserved
-      - run: uv run --frozen pytest
+      - run: uv run --frozen --all-groups pytest
 
   slow:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'

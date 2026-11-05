@@ -671,6 +671,7 @@ vlm = [
 benchmark = [
     { name = "jiwer" },
     { name = "markdown-it-py" },
+    { name = "pypdfium2" },
     { name = "rapidfuzz" },
 ]
 dev = [
@@ -712,6 +713,7 @@ provides-extras = ["vlm", "ocrmac"]
 benchmark = [
     { name = "jiwer", specifier = ">=4.0.0" },
     { name = "markdown-it-py", specifier = ">=4.2.0" },
+    { name = "pypdfium2", specifier = ">=5.14.0" },
     { name = "rapidfuzz", specifier = ">=3.14.6" },
 ]
 dev = [

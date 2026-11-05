@@ -1,0 +1,47 @@
+# Benchmark configuration. Fixed before looking at any result; thresholds are only
+# revised together with the project owner (see the project plan, section 9).
+
+# Document type of each case: "text" (PDF with a text layer), "scan" or "image".
+[types.real]
+"b2-week_01-01_grammar-source" = "scan"
+"b2-week_01-02_reading-source" = "text"
+"b2-week_01-05_transformation-source" = "text"
+"b2-week_02-01_grammar-source" = "image"
+"b2-week_02-02_reading-source" = "text"
+"b2-week_03-02_reading-source" = "text"
+
+[types.reserved]
+"b2-week_02-05_transformation-source" = "text"
+"b2-week_03-01_grammar-source" = "image"
+"b2-week_03-05_transformation-source" = "text"
+
+# Synthetic inputs are syn-<template>-<variant>; the type follows the variant.
+[types.synthetic]
+text = "text"
+scan = "scan"
+png = "image"
+
+# Acceptance thresholds per type, applied to the mean of the documents of that type.
+[thresholds.text]
+wer_norm_max = 0.01
+invented_max = 0
+heading_f1_min = 0.9
+
+[thresholds.scan]
+wer_norm_max = 0.05
+table_shape_min = 1.0
+heading_f1_min = 0.8
+
+[thresholds.image]
+wer_norm_max = 0.05
+table_shape_min = 1.0
+heading_f1_min = 0.8
+
+# Veto limits: warm = seconds per page, cold = seconds until the first document is done.
+[veto.mac]
+warm_max = 20
+cold_max = 60
+
+[veto.linux]
+warm_max = 60
+cold_max = 120

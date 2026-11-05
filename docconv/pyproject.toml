@@ -42,6 +42,7 @@ build-backend = "uv_build"
 benchmark = [
     "jiwer>=4.0.0",
     "markdown-it-py>=4.2.0",
+    "pypdfium2>=5.14.0",
     "rapidfuzz>=3.14.6",
 ]
 dev = [
