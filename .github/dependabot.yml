@@ -14,6 +14,11 @@ updates:
     directory: "/docconv"
     schedule:
       interval: "monthly"
+    ignore:
+      # The Python minor version is pinned project-wide (.python-version,
+      # requires-python, ruff, ty); change it by hand, not per file.
+      - dependency-name: "python"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
     commit-message:
       prefix: "docconv"
 

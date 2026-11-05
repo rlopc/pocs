@@ -2,6 +2,8 @@ name: docconv
 
 on:
   push:
+    # Other branches are covered by their pull request; avoids duplicate runs.
+    branches: [main]
     paths: ["docconv/**", ".github/workflows/docconv.yml"]
   pull_request:
     paths: ["docconv/**", ".github/workflows/docconv.yml"]
