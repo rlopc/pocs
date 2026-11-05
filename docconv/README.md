@@ -116,3 +116,24 @@ docker run --rm --network none -v "$PWD/in:/in:ro" -v "$PWD/out:/out" \
 
 The image bundles the models of the portable profiles (downloaded at build time) and
 installs CPU-only PyTorch. It runs as a non-root user.
+
+### System packages in the image
+
+On top of `python:3.14.7-slim` (Debian), the image installs only:
+
+| Package | License |
+| --- | --- |
+| `tesseract-ocr`, `tesseract-ocr-eng` (and `tesseract-ocr-osd`, pulled in) | Apache-2.0 |
+
+They pull in 67 shared libraries. Most are permissive (MIT, BSD, Apache-2.0, ISC,
+zlib, libpng), but some are copyleft: `libjbig0` (GPL-2+, through `libtiff6` and
+Leptonica) and LGPL libraries such as GLib, Pango, FriBidi, GnuTLS, libthai and
+libunistring. They are used unmodified, as Debian ships them. To list them with the
+licenses declared in their Debian copyright files:
+
+```bash
+docker run --rm --entrypoint sh docconv -c \
+  'for p in $(dpkg-query -W -f "\${Package}\n"); do
+     echo "$p: $(grep -h "^License:" /usr/share/doc/$p/copyright 2>/dev/null | sort -u | tr "\n" " ")"
+   done'
+```
