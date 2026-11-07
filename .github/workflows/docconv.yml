@@ -5,8 +5,9 @@ on:
     # Other branches are covered by their pull request; avoids duplicate runs.
     branches: [main]
     paths: ["docconv/**", ".github/workflows/docconv.yml"]
-  # No path filter: the checks are required by the branch ruleset, and a required check
-  # that never runs would block pull requests that do not touch docconv.
+  # No path filter here: the `docconv` gate job is required by the branch ruleset, and a
+  # workflow skipped by a path filter leaves its required check pending forever. The
+  # `changes` job filters by path instead; jobs skipped by `if` report success.
   pull_request:
   workflow_dispatch:
 
@@ -19,10 +20,6 @@ concurrency:
   # so every commit on main gets a complete result.
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
-defaults:
-  run:
-    working-directory: docconv
-
 env:
   UV_VERSION: "0.13.7"
   # Every uv command fails if uv.lock no longer matches pyproject.toml, instead of
@@ -30,11 +27,42 @@ env:
   UV_LOCKED: "1"
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: read # list the files changed by the pull request
+    outputs:
+      docconv: ${{ steps.filter.outputs.docconv }}
+    steps:
+      # Push runs are already path-filtered by the trigger; manual runs check everything.
+      - id: filter
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ]; then
+            echo "docconv=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Captured first: `grep -q` would close the pipe early and fail `gh` on SIGPIPE.
+          files=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename')
+          if grep -qE '^(docconv/|\.github/workflows/docconv\.yml$)' <<< "$files"; then
+            echo "docconv=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "docconv=false" >> "$GITHUB_OUTPUT"
+          fi
+
   checks:
+    needs: changes
+    if: needs.changes.outputs.docconv == 'true'
     runs-on: ubuntu-latest
     # Job timeouts are ~2-3x the slowest observed run, instead of GitHub's 360-minute
     # default that a hung step would burn in full.
     timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: docconv
     steps:
       # No step pushes or fetches after checkout: do not leave the token on the runner.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -52,10 +80,14 @@ jobs:
       - run: make verify TY_FLAGS="--output-format github"
 
   slow:
-    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    needs: changes
+    if: needs.changes.outputs.docconv == 'true' && github.event_name != 'push'
     runs-on: ubuntu-latest
     # Extra margin: on a cache miss the models are downloaded from the network.
     timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: docconv
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -76,9 +108,13 @@ jobs:
       - run: uv run pytest -m slow --no-cov
 
   docker:
-    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    needs: changes
+    if: needs.changes.outputs.docconv == 'true' && github.event_name != 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: docconv
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -98,3 +134,19 @@ jobs:
             -v "$PWD/data/inputs/real:/in:ro" -v /tmp/out:/out \
             docconv:ci convert /in/b2-week_01-02_reading-source.pdf -o /out
           test -s /tmp/out/b2-week_01-02_reading-source.md
+
+  # The only docconv check the branch ruleset requires: one stable name per POC, so job
+  # names can change and POCs do not collide. `always()` keeps it running when a needed
+  # job fails, since a skipped required job would otherwise count as success.
+  gate:
+    name: docconv
+    needs: [changes, checks, slow, docker]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: |
+          echo "A docconv job failed or was cancelled"
+          exit 1
+      - run: echo "All docconv jobs passed or were skipped"
