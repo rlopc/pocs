@@ -23,6 +23,9 @@ defaults:
 
 env:
   UV_VERSION: "0.13.7"
+  # Every uv command fails if uv.lock no longer matches pyproject.toml, instead of
+  # installing a stale lock (`--frozen`) or re-locking it.
+  UV_LOCKED: "1"
 
 jobs:
   checks:
@@ -35,16 +38,16 @@ jobs:
           working-directory: docconv
       # Installs every dependency group (`default-groups` in pyproject.toml): ty and the
       # tests also cover tools/ and benchmark/.
-      - run: uv sync --frozen
+      - run: uv sync
       # The Dockerfile is the reference for the uv and Python versions (Dependabot
       # updates it): fails if UV_VERSION or .python-version no longer match it.
       - run: make check-versions
-      - run: uv run --frozen ruff format --check
-      - run: uv run --frozen ruff check
+      - run: uv run ruff format --check
+      - run: uv run ruff check
       # GitHub format: diagnostics show up as annotations on the pull request diff.
-      - run: uv run --frozen ty check --output-format github
-      - run: uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved
-      - run: uv run --frozen pytest
+      - run: uv run ty check --output-format github
+      - run: uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved
+      - run: uv run pytest
 
   slow:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
@@ -57,14 +60,14 @@ jobs:
           working-directory: docconv
       # Every group: pytest imports all test modules before filtering by marker, and
       # some import benchmark/ (jiwer, rapidfuzz).
-      - run: uv sync --frozen
+      - run: uv sync
       - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/docconv/models
           key: docconv-models-c1-${{ hashFiles('docconv/src/docconv/profiles.toml', 'docconv/uv.lock') }}
       # Only the models of C1 (standard-rapidocr): the slow tests use it.
-      - run: uv run --frozen docconv models download --profile standard-rapidocr
-      - run: uv run --frozen pytest -m slow --no-cov
+      - run: uv run docconv models download --profile standard-rapidocr
+      - run: uv run pytest -m slow --no-cov
 
   docker:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
