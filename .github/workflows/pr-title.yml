@@ -1,0 +1,32 @@
+name: pr-title
+
+# Pull requests are squash-merged, so the title becomes the commit message on main.
+# Checks it against the convention in the README ("Commit messages").
+on:
+  pull_request:
+    # `edited`: re-check when the title is fixed. `synchronize`: required checks are
+    # tied to the head commit, so every push needs a result.
+    types: [opened, edited, synchronize, reopened]
+
+permissions: {}
+
+concurrency:
+  group: pr-title-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-title:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # The title goes through the environment, never interpolated into the script.
+      - name: Check the title format
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [[ "$TITLE" =~ ^[a-z0-9][a-z0-9-]*:\ [^[:space:]] ]]; then
+            echo "OK: $TITLE"
+          else
+            echo "::error::Title must be '<area>: <summary>' (see the README): $TITLE"
+            exit 1
+          fi
