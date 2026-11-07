@@ -1,0 +1,9 @@
+# OpenSSF Scorecard maintainer annotations: context shown next to the check results.
+annotations:
+  - checks:
+      - pinned-dependencies
+    reasons:
+      # Actions are pinned by commit in .github/workflows/actions.lock (GitHub Actions
+      # workflow lockfile, enforced by the "Require lockfile" policy). Scorecard only
+      # recognises SHAs written in `uses:`, which `gh actions-lock` rewrites to tags.
+      - reason: not-supported
