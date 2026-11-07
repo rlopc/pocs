@@ -52,3 +52,21 @@ check-versions:
 		echo "OK: uv $$docker_v (local $$local_v), Python $$py_docker"; \
 	fi; \
 	exit $$status
+
+.PHONY: lint test verify
+
+# Read-only static checks; the pre-commit hook runs this target. Each tool comes from
+# uv.lock, and `--locked` fails on a stale lock. CI sets TY_FLAGS to get annotations.
+TY_FLAGS ?=
+lint:
+	uv run --locked ruff format --check
+	uv run --locked ruff check
+	uv run --locked ty check $(TY_FLAGS)
+	uv run --locked pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved
+
+# Fast tests with the coverage gate (`slow` is excluded by pytest's addopts).
+test:
+	uv run --locked pytest
+
+# Everything the CI `checks` job runs: the gate before opening a pull request.
+verify: check-versions lint test

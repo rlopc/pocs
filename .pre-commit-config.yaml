@@ -1,17 +1,20 @@
 # Hooks for the whole monorepo. POC-specific hooks are local, filtered by folder,
-# and run each tool through `uv run --locked` so its version comes from that POC's
-# uv.lock (Dependabot updates it in one place).
+# and run that POC's `make lint`: its tools come from the POC's uv.lock (Dependabot
+# updates them in one place) and the commands are the ones CI runs.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-yaml
       - id: check-toml
+      - id: check-merge-conflict
       # Generated fixtures are never edited, not even by hooks.
       - id: end-of-file-fixer
         exclude: ^docconv/tests/fixtures/
       - id: trailing-whitespace
         exclude: ^docconv/tests/fixtures/
+        # Two trailing spaces are a hard line break in Markdown.
+        args: [--markdown-linebreak-ext=md]
       - id: check-added-large-files
         args: ["--maxkb=3000"]
 
@@ -22,27 +25,9 @@ repos:
 
   - repo: local
     hooks:
-      - id: docconv-ruff-format
-        name: docconv ruff format
+      - id: docconv-lint
+        name: docconv lint
         language: system
-        entry: bash -c 'cd docconv && uv run --locked ruff format --check'
-        files: ^docconv/
-        pass_filenames: false
-      - id: docconv-ruff-check
-        name: docconv ruff check
-        language: system
-        entry: bash -c 'cd docconv && uv run --locked ruff check'
-        files: ^docconv/
-        pass_filenames: false
-      - id: docconv-ty
-        name: docconv ty
-        language: system
-        entry: bash -c 'cd docconv && uv run --locked ty check'
-        files: ^docconv/
-        pass_filenames: false
-      - id: docconv-pymarkdown
-        name: docconv pymarkdown
-        language: system
-        entry: bash -c 'cd docconv && uv run --locked pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved'
+        entry: make -C docconv lint
         files: ^docconv/
         pass_filenames: false

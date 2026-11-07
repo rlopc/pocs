@@ -47,15 +47,9 @@ jobs:
       # Installs every dependency group (`default-groups` in pyproject.toml): ty and the
       # tests also cover tools/ and benchmark/.
       - run: uv sync
-      # The Dockerfile is the reference for the uv and Python versions (Dependabot
-      # updates it): fails if UV_VERSION or .python-version no longer match it.
-      - run: make check-versions
-      - run: uv run ruff format --check
-      - run: uv run ruff check
-      # GitHub format: diagnostics show up as annotations on the pull request diff.
-      - run: uv run ty check --output-format github
-      - run: uv run pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved
-      - run: uv run pytest
+      # The same target as locally, so the checks cannot drift between the two. GitHub
+      # format: ty diagnostics show up as annotations on the pull request diff.
+      - run: make verify TY_FLAGS="--output-format github"
 
   slow:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
