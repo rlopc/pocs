@@ -101,8 +101,8 @@ Pre-commit hooks are configured at the repository root (`pre-commit install` the
 ### Tool versions
 
 The Dockerfile is the reference for the `uv` and Python versions: Dependabot keeps it
-up to date. Two other places repeat them by hand: `UV_VERSION` in
-`.github/workflows/docconv.yml` and `.python-version`. CI runs `make check-versions`,
+up to date. Other places repeat them by hand: `UV_VERSION` in every workflow that pins
+it (`.github/workflows/*.yml`) and `.python-version`. CI runs `make check-versions`,
 which fails and says what to change when they differ from the Dockerfile, when the
 local `uv` is older than it, or when the pinned Python is not installed.
 

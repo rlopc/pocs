@@ -17,7 +17,8 @@ concurrency:
 
 env:
   # Pinned so CI does not change behaviour on a release. Dependabot does not track
-  # these; bump them by hand.
+  # these; bump them by hand. `make check-versions` (docconv) fails when UV_VERSION
+  # differs from the uv image in the Dockerfile, which Dependabot does update.
   UV_VERSION: "0.13.7"
   PRE_COMMIT_VERSION: "4.7.0"
   PRE_COMMIT_UV_VERSION: "4.4.2"
