@@ -9,6 +9,11 @@ updates:
     groups:
       dev-tools:
         patterns: ["ruff", "ty", "pytest*", "pymarkdownlnt"]
+    ignore:
+      # docling requires huggingface-hub<2, so every major bump fails to resolve.
+      # Lift this when docling allows 2.x.
+      - dependency-name: "huggingface-hub"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "docker"
     directory: "/docconv"
