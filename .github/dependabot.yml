@@ -28,3 +28,18 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "ci"
+    groups:
+      # Actions are pinned by SHA, so each bump is an opaque hash: review them together.
+      actions:
+        patterns: ["*"]
+
+  # Remote hooks only; the local POC hooks take their versions from each uv.lock.
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "pre-commit"
+    groups:
+      hooks:
+        patterns: ["*"]
