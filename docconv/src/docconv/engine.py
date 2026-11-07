@@ -11,16 +11,16 @@ import os
 # Must run before any Hugging Face library is imported.
 os.environ["HF_HUB_OFFLINE"] = "1"
 
-import time  # noqa: E402
-from dataclasses import dataclass  # noqa: E402
-from functools import cache  # noqa: E402
-from importlib.metadata import version  # noqa: E402
-from pathlib import Path  # noqa: E402
+import time
+from dataclasses import dataclass
+from functools import cache
+from importlib.metadata import version
+from pathlib import Path
 
-from docling.datamodel import vlm_model_specs  # noqa: E402
-from docling.datamodel.accelerator_options import AcceleratorDevice, AcceleratorOptions  # noqa: E402
-from docling.datamodel.base_models import InputFormat  # noqa: E402
-from docling.datamodel.pipeline_options import (  # noqa: E402
+from docling.datamodel import vlm_model_specs
+from docling.datamodel.accelerator_options import AcceleratorDevice, AcceleratorOptions
+from docling.datamodel.base_models import InputFormat
+from docling.datamodel.pipeline_options import (
     OcrMacOptions,
     OcrMode,
     OcrOptions,
@@ -29,18 +29,18 @@ from docling.datamodel.pipeline_options import (  # noqa: E402
     TesseractCliOcrOptions,
     VlmPipelineOptions,
 )
-from docling.document_converter import (  # noqa: E402
+from docling.document_converter import (
     DocumentConverter,
     FormatOption,
     ImageFormatOption,
     PdfFormatOption,
 )
-from docling.pipeline.vlm_pipeline import VlmPipeline  # noqa: E402
-from docling.utils.accelerator_utils import decide_device  # noqa: E402
-from docling_core.types.doc.document import DoclingDocument  # noqa: E402
+from docling.pipeline.vlm_pipeline import VlmPipeline
+from docling.utils.accelerator_utils import decide_device
+from docling_core.types.doc.document import DoclingDocument
 
-from docconv.models import ensure_models  # noqa: E402
-from docconv.profiles import Profile  # noqa: E402
+from docconv.models import ensure_models
+from docconv.profiles import Profile
 
 
 @dataclass(frozen=True)

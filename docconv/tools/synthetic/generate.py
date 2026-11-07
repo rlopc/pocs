@@ -45,7 +45,8 @@ def _env() -> Environment:
         lstrip_blocks=True,
     )
     env.filters["kind"] = lambda block: type(block).__name__
-    env.filters["runs"] = lambda runs: Markup(runs_html(runs))
+    # runs_html escapes every text run; only its own tags reach the template unescaped.
+    env.filters["runs"] = lambda runs: Markup(runs_html(runs))  # noqa: S704
     return env
 
 
