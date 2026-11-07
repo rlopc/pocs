@@ -1,5 +1,5 @@
 # Hooks for the whole monorepo. POC-specific hooks are local, filtered by folder,
-# and run each tool through `uv run --frozen` so its version comes from that POC's
+# and run each tool through `uv run --locked` so its version comes from that POC's
 # uv.lock (Dependabot updates it in one place).
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -25,24 +25,24 @@ repos:
       - id: docconv-ruff-format
         name: docconv ruff format
         language: system
-        entry: bash -c 'cd docconv && uv run --frozen ruff format --check'
+        entry: bash -c 'cd docconv && uv run --locked ruff format --check'
         files: ^docconv/
         pass_filenames: false
       - id: docconv-ruff-check
         name: docconv ruff check
         language: system
-        entry: bash -c 'cd docconv && uv run --frozen ruff check'
+        entry: bash -c 'cd docconv && uv run --locked ruff check'
         files: ^docconv/
         pass_filenames: false
       - id: docconv-ty
         name: docconv ty
         language: system
-        entry: bash -c 'cd docconv && uv run --frozen ty check'
+        entry: bash -c 'cd docconv && uv run --locked ty check'
         files: ^docconv/
         pass_filenames: false
       - id: docconv-pymarkdown
         name: docconv pymarkdown
         language: system
-        entry: bash -c 'cd docconv && uv run --frozen pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved'
+        entry: bash -c 'cd docconv && uv run --locked pymarkdown --strict-config --config .pymarkdown.json scan README.md benchmark/results.md data/expected/real data/expected/reserved'
         files: ^docconv/
         pass_filenames: false

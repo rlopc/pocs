@@ -24,10 +24,10 @@ WORKDIR /app
 # BuildKit cache mount: reused across builds, never stored in the image.
 COPY pyproject.toml uv.lock README.md ./
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-default-groups --extra vlm --no-install-project
+    uv sync --locked --no-default-groups --extra vlm --no-install-project
 COPY src ./src
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-default-groups --extra vlm --no-editable
+    uv sync --locked --no-default-groups --extra vlm --no-editable
 
 # Models of the portable profiles (C1-C4, plus the optional C7, activated in the
 # profile comparison); needs network at build time only.
