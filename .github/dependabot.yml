@@ -4,6 +4,11 @@ updates:
     directory: "/docconv"
     schedule:
       interval: "monthly"
+    # Let a release age a week before adopting it, so a compromised or broken one is
+    # likely to be yanked first. Dependabot's own default is 3 days; security updates
+    # are never delayed.
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "docconv"
     groups:
@@ -19,6 +24,8 @@ updates:
     directory: "/docconv"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     ignore:
       # The Python minor version is pinned project-wide (.python-version,
       # requires-python, ruff, ty); change it by hand, not per file.
@@ -31,6 +38,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "ci"
     groups:
@@ -43,6 +52,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "pre-commit"
     groups:

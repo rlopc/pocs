@@ -1,0 +1,52 @@
+name: repo
+
+# Repository-wide checks: the pre-commit hooks that are not specific to a POC, so they
+# hold even for commits made without the hooks installed.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repo-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  # Pinned so CI does not change behaviour on a release. Dependabot does not track
+  # these; bump them by hand.
+  UV_VERSION: "0.13.7"
+  PRE_COMMIT_VERSION: "4.7.0"
+  PRE_COMMIT_UV_VERSION: "4.4.2"
+
+jobs:
+  pre-commit:
+    # The check name required by the branch ruleset.
+    name: repo
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: ${{ env.UV_VERSION }}
+      - uses: actions/cache@v6.1.0
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+      # POC hooks are skipped: each POC's workflow runs the same `make lint` in its
+      # synced environment.
+      - name: Run the repository hooks
+        env:
+          SKIP: docconv-lint
+          # Enables zizmor's online audits (known-vulnerable or impostor actions).
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          uvx --from "pre-commit==$PRE_COMMIT_VERSION"
+          --with "pre-commit-uv==$PRE_COMMIT_UV_VERSION"
+          pre-commit run --all-files --show-diff-on-failure
