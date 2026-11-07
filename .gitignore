@@ -3,3 +3,9 @@
 __pycache__/
 *.pyc
 .env
+
+# Terraform: provider downloads and state. The state stays local; infra/github/imports.tf
+# rebuilds it if lost. .terraform.lock.hcl is versioned.
+.terraform/
+*.tfstate
+*.tfstate.*

@@ -6,6 +6,9 @@ Each POC lives in its own top-level folder and is an independent `uv` project
 (no uv workspace): it has its own `pyproject.toml`, `uv.lock` and virtual
 environment. CI workflows are filtered by folder.
 
+The configuration of the repository (GitHub settings, CI, security, tooling) and
+how to replicate it: [`docs/README.md`](docs/README.md).
+
 ## POCs
 
 - [`docconv`](docconv/): local converter of documents (PDF, scanned PDF, images) to Markdown, with self-verification.

@@ -5,5 +5,5 @@
 ## Checklist
 
 - [ ] Tests added or updated
-- [ ] Docs updated (README / PLAN) if behavior changed
+- [ ] Docs updated (README / PLAN) if behavior changed; settings changed in their file, with the reason
 - [ ] CI is green

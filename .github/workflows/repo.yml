@@ -1,7 +1,8 @@
 name: repo
 
 # Repository-wide checks: the pre-commit hooks that are not specific to a POC, so they
-# hold even for commits made without the hooks installed.
+# hold even for commits made without the hooks installed, and the static checks of the
+# Terraform configuration of the GitHub settings (infra/github).
 on:
   push:
     branches: [main]
@@ -22,6 +23,7 @@ env:
   UV_VERSION: "0.13.7"
   PRE_COMMIT_VERSION: "4.7.0"
   PRE_COMMIT_UV_VERSION: "4.4.2"
+  TERRAFORM_VERSION: "1.17.1"
 
 jobs:
   pre-commit:
@@ -51,3 +53,15 @@ jobs:
           uvx --from "pre-commit==$PRE_COMMIT_VERSION"
           --with "pre-commit-uv==$PRE_COMMIT_UV_VERSION"
           pre-commit run --all-files --show-diff-on-failure
+      - uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+          terraform_wrapper: false
+      # Static checks only: `terraform plan` needs admin rights on the repository, which
+      # the workflow token must not have. Drift is checked locally (docs/README.md).
+      - name: Check the Terraform configuration
+        working-directory: infra/github
+        run: |
+          terraform fmt -check -diff
+          terraform init -backend=false -input=false
+          terraform validate
