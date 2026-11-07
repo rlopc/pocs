@@ -59,3 +59,13 @@ updates:
     groups:
       hooks:
         patterns: ["*"]
+
+  # The integrations/github provider version locked in infra/github/.terraform.lock.hcl.
+  - package-ecosystem: "terraform"
+    directory: "/infra/github"
+    schedule:
+      interval: "monthly"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "repo"
