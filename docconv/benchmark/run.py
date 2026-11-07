@@ -389,7 +389,7 @@ def _meta(env: str) -> dict[str, Any]:
     else:
         fmt = "{{.NCPU}} {{.MemTotal}} {{.Architecture}}"
         info = subprocess.run(["docker", "info", "--format", fmt], capture_output=True, text=True)
-        cpus, mem, arch = (info.stdout.split() + ["?", "0", "?"])[:3]
+        cpus, mem, arch = [*info.stdout.split(), "?", "0", "?"][:3]
         meta |= {"docker_cpus": cpus, "docker_mem_gib": round(int(mem) / 2**30, 1), "arch": arch}
     return meta
 

@@ -92,7 +92,7 @@ supported by design but not tested.
 ```bash
 make verify                    # everything the CI `checks` job runs: check-versions, lint, test
 make lint                      # ruff format/check, ty, pymarkdown (the pre-commit hook)
-make test                      # fast tests (no models), with coverage >= 80 %
+make test                      # fast tests (no models), with line+branch coverage >= 95 %
 uv run pytest -m slow --no-cov # tests that load models (run `docconv models download` first)
 ```
 

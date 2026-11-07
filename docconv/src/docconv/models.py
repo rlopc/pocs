@@ -69,7 +69,9 @@ def _download_one(spec: ModelSpec, root: Path) -> None:
         )
     from docling.models.stages.ocr.rapid_ocr_model import RapidOcrModel
 
-    assert spec.backend is not None and spec.lang is not None and spec.model_size is not None
+    assert spec.backend is not None
+    assert spec.lang is not None
+    assert spec.model_size is not None
     RapidOcrModel.download_models(
         backend=spec.backend, local_dir=target, lang=spec.lang, model_size=spec.model_size
     )

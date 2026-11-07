@@ -12,10 +12,7 @@ dependencies = [
     "docling-core>=2.106.0",
     "docling[rapidocr]>=2.147,<3",
     "huggingface-hub>=1.33.0",
-    "markdown-it-py>=4.2.0",
-    "mcp>=2.3,<3",
     "psutil>=7.2.2",
-    "pymarkdownlnt>=0.9.41",
     # torch and torchvision come in through docling; they are declared directly only so
     # that [tool.uv.sources] can route them to the CPU-only index on Linux
     # (uv ignores sources for transitive dependencies).
@@ -48,6 +45,7 @@ benchmark = [
 ]
 dev = [
     "pillow>=13.0.0",
+    "pymarkdownlnt>=0.9.41",
     "pytest>=9.2.0",
     "pytest-cov>=7.1.0",
     "ruff>=0.17.3",
@@ -78,12 +76,25 @@ torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 torchvision = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 
 [tool.ruff]
+# The target Python version is inferred from requires-python.
 line-length = 100
-target-version = "py314"
 
 [tool.ruff.lint]
 # ANN and PYI cover type annotations, which ty does not enforce.
-select = ["E", "F", "I", "UP", "B", "SIM", "ANN", "PYI"]
+select = [
+    "E", "F", "I", "UP", "B", "SIM", "ANN", "PYI",
+    "RUF", "PT", "S", "BLE", "C4", "PTH", "PERF",
+]
+ignore = [
+    # Asserts here only narrow types for ty; checks that must survive `python -O` raise.
+    "S101",
+]
+# Typographic quotes and dashes are intended content in synthetic documents and tests.
+allowed-confusables = ["‘", "’", "–"]
+
+[tool.ruff.lint.per-file-ignores]
+# Developer tool that runs fixed, trusted commands (docker, sysctl, docconv).
+"benchmark/**" = ["S603", "S607"]
 
 # ty's default rules plus the opt-in ones of its documented strict configuration
 # (https://docs.astral.sh/ty/coming-from-mypy-or-pyright/#recommended-configuration),
@@ -105,12 +116,21 @@ strict-generic-narrowing = true
 [tool.ty.src]
 include = ["src", "tests", "benchmark", "tools"]
 
-[tool.pytest.ini_options]
+[tool.pytest]
+# Native TOML table (pytest 9). Strict mode turns unknown markers and config keys,
+# non-strict xfails and ambiguous parametrize ids into errors; it is safe because
+# pytest is pinned by uv.lock (strict mode gains checks across releases).
+strict = true
 testpaths = ["tests"]
 markers = ["slow: loads ML models"]
-addopts = "-m 'not slow' --cov=docconv --cov-report=term-missing --cov-fail-under=80"
+addopts = ["-m", "not slow", "--cov=docconv", "--cov-report=term-missing"]
 
 [tool.coverage.run]
 source = ["docconv"]
+branch = true
 # Thin layers that need models or network; covered by the `slow` tests.
 omit = ["*/docconv/engine.py", "*/docconv/models.py"]
+
+[tool.coverage.report]
+# Close to the measured coverage, so a drop fails CI instead of going unnoticed.
+fail_under = 95

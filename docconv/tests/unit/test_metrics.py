@@ -50,7 +50,8 @@ def test_normalisation_and_gaps() -> None:
 
 def test_word_errors_ignore_order_and_punctuation() -> None:
     m = compare("Alpha beta gamma.", "gamma, beta alpha delta")
-    assert m["invented"] == 1 and m["omitted"] == 0
+    assert m["invented"] == 1
+    assert m["omitted"] == 0
     assert m["wer_norm"] > 0
 
 
@@ -63,9 +64,12 @@ def test_headings_fuzzy_match_and_level() -> None:
 def test_lists_tables_and_na() -> None:
     m = compare("- a\n- b\n", "1. a\n2. b\n")
     assert m["lists_ok"] == 0
-    assert m["table_shape_ok"] is None and m["heading_f1"] is None and m["bold_f1"] is None
+    assert m["table_shape_ok"] is None
+    assert m["heading_f1"] is None
+    assert m["bold_f1"] is None
     m = compare("Plain text.\n", "# Heading\n\n**bold**\n")
-    assert m["heading_fp"] == 1 and m["bold_fp"] == 1
+    assert m["heading_fp"] == 1
+    assert m["bold_fp"] == 1
 
 
 def test_table_shape_and_cells() -> None:
@@ -79,7 +83,9 @@ def test_table_shape_and_cells() -> None:
 
 def test_empty_output() -> None:
     m = compare(DOC, "")
-    assert m["wer_norm"] == 1 and m["heading_f1"] == 0 and m["table_shape_ok"] == 0
+    assert m["wer_norm"] == 1
+    assert m["heading_f1"] == 0
+    assert m["table_shape_ok"] == 0
 
 
 def test_list_numbers_are_text() -> None:
