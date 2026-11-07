@@ -23,6 +23,19 @@ repos:
     hooks:
       - id: gitleaks
 
+  # Workflow correctness (expressions, contexts, shellcheck on run blocks).
+  - repo: https://github.com/Mateusz-Grzelinski/actionlint-py
+    rev: v1.7.12.25
+    hooks:
+      - id: actionlint
+
+  # Workflow security (template injection, credential persistence, pinning...). Online
+  # audits run only when GH_TOKEN is set, as in CI.
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.32.0
+    hooks:
+      - id: zizmor
+
   - repo: local
     hooks:
       - id: docconv-lint

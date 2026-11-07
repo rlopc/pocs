@@ -17,6 +17,6 @@ environment. CI workflows are filtered by folder.
    from `docconv.yml` (gate `name: <poc>`).
 2. Run `gh actions-lock` to add the new workflow to `.github/workflows/actions.lock`.
 3. Add the `<poc>` check to the `protect-main` ruleset's required status checks.
-4. Add a local `<poc>-lint` hook to `.pre-commit-config.yaml` and the POC's
-   ecosystems to `.github/dependabot.yml`.
+4. Add a local `<poc>-lint` hook to `.pre-commit-config.yaml` (and its id to `SKIP`
+   in `.github/workflows/repo.yml`) and the POC's ecosystems to `.github/dependabot.yml`.
 5. With two workflows, enable **Require lockfile** in Settings → Actions.
