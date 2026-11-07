@@ -4,7 +4,7 @@ on:
   push:
     # Other branches are covered by their pull request; avoids duplicate runs.
     branches: [main]
-    paths: ["docconv/**", ".github/workflows/docconv.yml"]
+    paths: ["docconv/**", ".github/workflows/docconv.yml", ".github/workflows/actions.lock"]
   # No path filter here: the `docconv` gate job is required by the branch ruleset, and a
   # workflow skipped by a path filter leaves its required check pending forever. The
   # `changes` job filters by path instead; jobs skipped by `if` report success.
@@ -47,7 +47,7 @@ jobs:
           fi
           # Captured first: `grep -q` would close the pipe early and fail `gh` on SIGPIPE.
           files=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename')
-          if grep -qE '^(docconv/|\.github/workflows/docconv\.yml$)' <<< "$files"; then
+          if grep -qE '^(docconv/|\.github/workflows/(docconv\.yml|actions\.lock)$)' <<< "$files"; then
             echo "docconv=true" >> "$GITHUB_OUTPUT"
           else
             echo "docconv=false" >> "$GITHUB_OUTPUT"
@@ -65,10 +65,10 @@ jobs:
         working-directory: docconv
     steps:
       # No step pushes or fetches after checkout: do not leave the token on the runner.
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - uses: astral-sh/setup-uv@v10.3.3
         with:
           version: ${{ env.UV_VERSION }}
           working-directory: docconv
@@ -89,17 +89,17 @@ jobs:
       run:
         working-directory: docconv
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - uses: astral-sh/setup-uv@v10.3.3
         with:
           version: ${{ env.UV_VERSION }}
           working-directory: docconv
       # Every group: pytest imports all test modules before filtering by marker, and
       # some import benchmark/ (jiwer, rapidfuzz).
       - run: uv sync
-      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      - uses: actions/cache@v6.1.0
         with:
           path: ~/.cache/docconv/models
           key: docconv-models-c1-${{ hashFiles('docconv/src/docconv/profiles.toml', 'docconv/uv.lock') }}
@@ -116,7 +116,7 @@ jobs:
       run:
         working-directory: docconv
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       # The image bakes in several GB of models and the runner runs out of disk while
