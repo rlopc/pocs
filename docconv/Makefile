@@ -11,13 +11,13 @@ update-tooling:
 
 # Check that versions are in sync. The Dockerfile is the reference: Dependabot
 # keeps it up to date. Prints how to fix each mismatch. Changes nothing.
-# - uv: the workflow pins the same version as the Dockerfile, and the local uv
+# - uv: every workflow that pins UV_VERSION pins the same version as the Dockerfile
+#   (a new workflow is covered without changing this target), and the local uv
 #   (Homebrew, always the latest) is not older than it. A newer one is fine.
 # - Python: .python-version pins the same patch as the Dockerfile, and that patch
 #   is installed locally.
 check-versions:
 	@docker_v=$$(sed -n 's|^FROM ghcr.io/astral-sh/uv:\([0-9.]*\).*|\1|p' Dockerfile); \
-	ci_v=$$(sed -n 's|^  UV_VERSION: "\([0-9.]*\)"|\1|p' ../.github/workflows/docconv.yml); \
 	local_v=$$(uv --version | cut -d' ' -f2); \
 	py_docker=$$(sed -n 's|^FROM python:\([0-9.]*\).*|\1|p' Dockerfile); \
 	py_pin=$$(cat .python-version); \
@@ -31,10 +31,13 @@ check-versions:
 		exit 1; \
 	fi; \
 	status=0; \
-	if [ "$$ci_v" != "$$docker_v" ]; then \
-		echo "Workflow: set UV_VERSION to \"$$docker_v\" in .github/workflows/docconv.yml (now: \"$$ci_v\")"; \
-		status=1; \
-	fi; \
+	for wf in $$(grep -l '^  UV_VERSION: ' ../.github/workflows/*.yml); do \
+		ci_v=$$(sed -n 's|^  UV_VERSION: "\([0-9.]*\)"|\1|p' "$$wf"); \
+		if [ "$$ci_v" != "$$docker_v" ]; then \
+			echo "Workflow: set UV_VERSION to \"$$docker_v\" in $${wf#../} (now: \"$$ci_v\")"; \
+			status=1; \
+		fi; \
+	done; \
 	oldest=$$(printf '%s\n%s\n' "$$docker_v" "$$local_v" | sort -V | head -n 1); \
 	if [ "$$oldest" != "$$docker_v" ]; then \
 		echo "Local uv: run 'make update-tooling' or 'brew update && brew upgrade uv' (now: $$local_v, need >= $$docker_v)"; \
