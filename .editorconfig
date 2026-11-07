@@ -1,0 +1,30 @@
+# Editor-level rules, applied before any formatter runs. They restate in a
+# tool-agnostic file what .gitattributes enforces in Git.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{yaml,yml,json,md}]
+indent_size = 2
+
+[*.py]
+# Same as ruff's line-length in each POC's pyproject.toml.
+max_line_length = 100
+
+[*.md]
+# Markdown encodes a hard line break as two trailing spaces; trimming breaks it.
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+# Generated fixtures are never edited, not even by editors.
+[docconv/tests/fixtures/**]
+insert_final_newline = unset
+trim_trailing_whitespace = unset

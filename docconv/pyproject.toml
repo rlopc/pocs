@@ -3,6 +3,7 @@ name = "docconv"
 version = "0.1.0"
 description = "Local converter of documents (PDF, scanned PDF, images) to Markdown, with self-verification"
 readme = "README.md"
+license = "MIT"
 authors = [
     { name = "rlopc", email = "rlopc4dev@gmail.com" }
 ]
