@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(make check-versions)",
+      "Bash(make lint)",
+      "Bash(make test)",
+      "Bash(make verify)",
+      "Bash(uv run --locked pytest *)"
+    ]
+  }
+}
