@@ -21,6 +21,7 @@ single source of truth.
 | Dependency updates | [`.github/dependabot.yml`](../.github/dependabot.yml) |
 | Security policy | [`SECURITY.md`](../SECURITY.md) |
 | Local hooks | [`.pre-commit-config.yaml`](../.pre-commit-config.yaml) |
+| Coding agent: commands allowed without a prompt (only the read-only and test targets of a POC's `Makefile`) | [`.claude/settings.json`](../.claude/settings.json) |
 | Editor and Git normalization | [`.editorconfig`](../.editorconfig), [`.gitattributes`](../.gitattributes), [`.gitignore`](../.gitignore) |
 | Review and pull requests | [`.github/CODEOWNERS`](../.github/CODEOWNERS), [`.github/pull_request_template.md`](../.github/pull_request_template.md) |
 | Structure of a POC (uv, ruff, ty, pytest, Makefile, Docker) | [`docconv/`](../docconv/) as reference: `pyproject.toml`, `Makefile`, `Dockerfile`, `README.md`; [README "Adding a POC"](../README.md#adding-a-poc) |

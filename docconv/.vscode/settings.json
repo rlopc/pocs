@@ -8,5 +8,13 @@
   ],
   "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "off",
-  "ty.disableLanguageServices": true
+  "ty.disableLanguageServices": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  }
 }
